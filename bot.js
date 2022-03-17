@@ -18,10 +18,12 @@ bot.on('message', (msg) => {
   console.log(msg);
   
   const name = msg.from.first_name;
-  
-  bot.sendMessage(msg.chat.id, 'Hello, ' + name + '!').then(() => {
+  if(msg.text='희망'){
+    bot.sendMessage('우주대존예여신!')
+  }
+  //bot.sendMessage(msg.chat.id, 'Hello, ' + name + '!').then(() => {
     // reply sent!
-  });
+  //});
 });
 
 module.exports = bot;
