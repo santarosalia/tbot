@@ -15,6 +15,7 @@
     "dotenv": "^4.0.0",
     "express": "^4.13.4",
     "node-telegram-bot": "^0.1.9",
-    "node-telegram-bot-api": "^0.30.0"
+    "node-telegram-bot-api": "^0.30.0",
+    "@notionhq/client": "^1.0.1"
   }
 }
