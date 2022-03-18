@@ -95,30 +95,30 @@ bot.onText(/\/expire/, async (msg) => {
   })
 });
 
-let rule = new schedule.RecurrenceRule();
-rule.tz = 'Asia/Seoul';
-let chatList = []
-chatList.push(process.env.DEFAULT_CHAT_ID, process.env.VIVI_CHAT_ID)
+// let rule = new schedule.RecurrenceRule();
+// rule.tz = 'Asia/Seoul';
+// let chatList = []
+// chatList.push(process.env.DEFAULT_CHAT_ID, process.env.VIVI_CHAT_ID)
 
 
-schedule.scheduleJob('0 18 * * *', async function(){
-  await leftDateFive().then((result)=>{
-      if(result.length > 0) {
-          chatList.map((chatId)=>{
-              let state = ''
-              result.map((item)=>{
-                  if(item.left === 0){
-                      state += `${item.name} 오늘까지입니다.\n`
-                  } else if(item.left > 0){
-                      state += `${item.name} ${item.left}일 남았습니다.\n`
-                  } else {
-                      state += `${item.name} ${Math.abs(item.left)}일 지났습니다.\n`
-                  }
-              })
-              bot.sendMessage(chatId, state)
-          })
-      }
-  })
-});
+// schedule.scheduleJob('0 18 * * *', async function(){
+//   await leftDateFive().then((result)=>{
+//       if(result.length > 0) {
+//           chatList.map((chatId)=>{
+//               let state = ''
+//               result.map((item)=>{
+//                   if(item.left === 0){
+//                       state += `${item.name} 오늘까지입니다.\n`
+//                   } else if(item.left > 0){
+//                       state += `${item.name} ${item.left}일 남았습니다.\n`
+//                   } else {
+//                       state += `${item.name} ${Math.abs(item.left)}일 지났습니다.\n`
+//                   }
+//               })
+//               bot.sendMessage(chatId, state)
+//           })
+//       }
+//   })
+// });
 
 module.exports = bot;
