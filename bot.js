@@ -17,7 +17,7 @@ else {
 console.log('Bot server started in the ' + process.env.NODE_ENV + ' mode');
 
 bot.on('message', (msg) => {
-  console.log(msg);
+  console.log(msg.from.first_name+'의 메세지 :'+msg.text);
   
   const name = msg.from.first_name;
   if(msg.text=='희망'){
