@@ -2,7 +2,7 @@ const token = process.env.TOKEN;
 
 const Bot = require('node-telegram-bot-api');
 const TelegramBot = require('node-telegram-bot-api/lib/telegram');
-const {typeFilter, getTypeList, leftDateFive, allThings} = require('./notion');
+const notion = require('./notion');
 
 let bot;
 
@@ -22,9 +22,18 @@ bot.on('message', (msg) => {
   const name = msg.from.first_name;
   if(msg.text=='희망'){
     bot.sendMessage(msg.chat.id,'우주대존예여신!');
+    
+  }
+  if(msg.text=='전체보기'){
+    bot.sendMessage(msg.chat.id,'전체보기',{
+      "reply_markup" : {
+        "keyboard" : "전체보기"
+
+      }
+    }).then();
+    
   }
 
 });
-
 
 module.exports = bot;
