@@ -27,7 +27,7 @@ bot.on('message', (msg) => {
   if(msg.text=='전체보기'){
     bot.sendMessage(msg.chat.id,'전체보기',{
       "reply_markup" : {
-        "keyboard" : ["전체보기"]
+        "keyboard" : [["전체보기"]]
 
       }
     }).then();
