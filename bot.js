@@ -16,7 +16,7 @@ else {
 
 console.log('Bot server started in the ' + process.env.NODE_ENV + ' mode');
 
-bot.on('message', (msg) => {
+bot.on('message',async (msg) => {
   console.log(msg.from.first_name+'의 메세지 :'+msg.text);
   
   const name = msg.from.first_name;
@@ -33,7 +33,7 @@ bot.on('message', (msg) => {
     }).then();
 
   }
-  await createSomthings(msg);
+  await createSomthings(msg).then();
 
 });
 
