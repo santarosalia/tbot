@@ -33,7 +33,7 @@ bot.on('message',async (msg) => {
     }).then();
 
   }
-  await createSomthings(msg).then();
+  await createSomthing(msg).then();
 
 });
 
