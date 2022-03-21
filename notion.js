@@ -73,6 +73,8 @@ const allThings = async ()  => {
         console.log(e)
     }
 }
+module.exports = {createSomething}
+
 
 // const leftDateFive = async () => {
 //     try {
