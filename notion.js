@@ -29,21 +29,17 @@ async function addItem(text) {
 
 const createSomething = async (text)  => {
     try {
-        const updateTodo = await notion.databases.create({
-            parent : {page_id: databaseId},
-            
+        const updateTodo = await notion.pages.create({
+            parent : {database_id: databaseId},
             properties : {
                 title : {
                     title : [
-                        {
-                            "text": {
-                                "content": text
-                                }
-                        }
+                        {text:{
+                            content : text
+                        }}
                     ]
                 }
             }
-        }
 
         )
 
