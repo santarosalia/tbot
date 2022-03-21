@@ -2,7 +2,7 @@ const token = process.env.TOKEN;
 
 const Bot = require('node-telegram-bot-api');
 const TelegramBot = require('node-telegram-bot-api/lib/telegram');
-const notion = require('./notion');
+const {createSomething} = require('./notion');
 
 let bot;
 
