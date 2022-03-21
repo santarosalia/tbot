@@ -30,7 +30,7 @@ async function addItem(text) {
 const createSomething = async (text)  => {
     try {
         const updateTodo = await notion.databases.create({
-            parent : {database_id : databaseId,page_id: databaseId},
+            parent : {page_id: databaseId},
             
             properties : {
                 title : {
