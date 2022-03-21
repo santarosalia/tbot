@@ -40,7 +40,7 @@ const createSomething = async (text)  => {
                     ]
                 }
             }
-
+        }
         )
 
             
