@@ -54,7 +54,7 @@ const options = {
       if (error) throw new Error(error);
     
       const detail = JSON.parse(JSON.stringify(body));
-      console.log(detail[0].market);
+      console.log(detail[0]);
       
     });
 
