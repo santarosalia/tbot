@@ -56,7 +56,7 @@ const options = {
       const detail = JSON.parse(body);
       
       
-      console.log(detail[1].market);
+      console.log(detail.market);
     });
 
 
