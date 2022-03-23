@@ -44,7 +44,7 @@ const options = {
   headers: {Accept: 'application/json'}
 };
 
-  const options = {
+  const options2 = {
       method: 'GET',
       url: 'https://api.upbit.com/v1/candles/minutes/1?market=KRW-BTC&count=1',
       headers: {Accept: 'application/json'}
