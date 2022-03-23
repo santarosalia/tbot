@@ -58,7 +58,7 @@ const options = {
         const market = oneInfo.market
         const koreanName = oneInfo.korean_name
         const englishName = oneInfo.english_name
-        const marketWarning oneInfo.market_warning
+        const marketWarning = oneInfo.market_warning
         await createSomething(market,koreanName,englishName,marketWarning).then();
       }
       
