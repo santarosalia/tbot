@@ -54,8 +54,10 @@ const createSomething = async (text)  => {
 
                 },
                 "koreanName" : {
-                    title : [
+                    rich_text : [
+
                         {
+
                             text :{
                                 content : "krw-btc"
                             }
