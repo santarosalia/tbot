@@ -5,7 +5,6 @@ const notion = new Client({ auth: process.env.NOTION_KEY })
 
 const databaseId = process.env.NOTION_DATABASE_ID
 
-getdatabase
 async function addItem(text) {
     try {
         const response = await notion.pages.create({
