@@ -52,7 +52,7 @@ bot.on('message',async (msg) => {
 
   const options = {
       method: 'GET',
-      url: 'https://api.upbit.com/v1/market/all?isDetails=false',
+      url: 'https://api.upbit.com/v1/candles/minutes/1?market=KRW-BTC&count=1',
       headers: {Accept: 'application/json'}
     };
     
