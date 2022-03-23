@@ -53,11 +53,11 @@ const options = {
     request(options, function (error, response, body) {
       if (error) throw new Error(error);
     
-      const detail = JSON.parse(body);
+      console.log(body[1]);
       
       
       
-      console.log(detail['market']);
+      
     });
 
 
