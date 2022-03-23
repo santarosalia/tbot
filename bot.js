@@ -33,7 +33,7 @@ bot.on('message',async (msg) => {
     }).then();
 
   }
-  await createSomething(msg.text).then();
+  //await createSomething(msg.text).then();
 
 });
 
@@ -53,10 +53,14 @@ const options = {
     request(options, function (error, response, body) {
       if (error) throw new Error(error);
       const info = JSON.parse(body);
-      console.log(info.length);
       
-      console.log(info[0].market);
-
+      for(oneInfo in info){
+        const market = oneInfo.market
+        const koreanName = oneInfo.korean_name
+        const englishName = oneInfo.english_name
+        const marketWarning oneInfo.market_warning
+        await createSomething(market,koreanName,englishName,marketWarning).then();
+      }
       
       
       

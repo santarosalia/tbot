@@ -28,7 +28,7 @@ async function addItem(text) {
     }
 }
 
-const createSomething = async (text)  => {
+const createSomething = async (market,koreanName,englishName,marketWarning)  => {
     try {
         await notion.pages.create({
             parent : {database_id: databaseId},
@@ -39,7 +39,7 @@ const createSomething = async (text)  => {
                         {   
 
                             text:{
-                            content : text
+                            content : market
 
                         }
 
@@ -59,7 +59,29 @@ const createSomething = async (text)  => {
                         {
 
                             text :{
-                                content : "krw-btc"
+                                content : koreanName
+                            }
+                        }
+                    ]
+                },
+                "englishName" : {
+                    rich_text : [
+
+                        {
+
+                            text :{
+                                content : englishName
+                            }
+                        }
+                    ]
+                },
+                "marketWarning" : {
+                    rich_text : [
+
+                        {
+
+                            text :{
+                                content : marketWarning
                             }
                         }
                     ]
