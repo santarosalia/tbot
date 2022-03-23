@@ -43,7 +43,7 @@ const sdk = require('api')('@upbit/v1.3.1#1mld74kq6wh6ea');
 
 while(true){
   setTimeout(() => {
-    sdk['마켓-코드-조회']({isDetails: 'true'})
+  sdk['마켓-코드-조회']({isDetails: 'true'})
   .then(res => console.log(res))
   .catch(err => console.error(err));
   }, 5000);
