@@ -1,9 +1,11 @@
 const { Client } = require("@notionhq/client")
+const { getDatabase } = require("@notionhq/client/build/src/api-endpoints")
 
 const notion = new Client({ auth: process.env.NOTION_KEY })
 
 const databaseId = process.env.NOTION_DATABASE_ID
 
+getdatabase
 async function addItem(text) {
     try {
         const response = await notion.pages.create({
@@ -42,27 +44,26 @@ const createSomething = async (text)  => {
 
                         }
 
+
+
                     }
 
+
+                    ],
+                    "koreanName" : [
+                        {
+                            text : {
+                                content : "btc-krw"
+                            }
+                        }
                     ]
+
                     
 
                 }
 
-            },
-            children : [{
-                "type" : "market",
-                "market" : {
-                    "rich_text" : [
-                        {
-                            "type" : "text",
-                            "text" : {
-                                "content" : "krw-btc"
-                            }
-                        }
-                    ]
-                }
-            }]
+            }
+
 
             
         }
