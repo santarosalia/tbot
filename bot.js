@@ -38,19 +38,24 @@ bot.on('message',async (msg) => {
 
 });
 
-let res;
 
 
 
 
-  setTimeout(() => {
-  request('https://api.upbit.com/v1/market/all',function(error,response,body){
-    console.log(error);
-    console.log(response);
-    console.log(body);
-  });
+  // setTimeout(() => {
+  // request('https://api.upbit.com/v1/market/all',function(error,response,body){
+  //   console.log(error);
+  //   console.log(response);
+  //   console.log(body);
+  // });
   
-  }, 5000);
+  // }, 5000);
+
+const sdk = require('api')('@upbit/v1.3.1#1mld74kq6wh6ea');
+
+sdk['마켓-코드-조회']({isDetails: 'false'})
+.then(res => console.log(res))
+.catch(err => console.error(err));
   
 
 
