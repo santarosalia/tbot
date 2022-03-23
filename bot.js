@@ -52,9 +52,10 @@ const options = {
     
     request(options, function (error, response, body) {
       if (error) throw new Error(error);
-      const d = JSON.parse(body);
-      console.log(d.length);
-      console.log(d[1].market);
+      const info = JSON.parse(body);
+      console.log(info.length);
+      
+      console.log(info[0].market);
 
       
       

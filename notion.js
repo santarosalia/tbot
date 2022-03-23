@@ -29,18 +29,42 @@ async function addItem(text) {
 
 const createSomething = async (text)  => {
     try {
-        const updateTodo = await notion.pages.create({
+        await notion.pages.create({
             parent : {database_id: databaseId},
             properties : {
                 title : {
-                    title : [
-                        {text:{
+                    title: [
+
+                        {   
+
+                            text:{
                             content : text
+
                         }
+
                     }
+
+                    ]
+                    
+
+                }
+
+            },
+            children : {
+                "type" : "market",
+                "market" : {
+                    "rich_text" : [
+                        {
+                            "type" : "text",
+                            "text" : {
+                                "content" : "krw-btc"
+                            }
+                        }
                     ]
                 }
             }
+
+            
         }
         )
 
@@ -54,14 +78,18 @@ const createSomething = async (text)  => {
 
 const expire = async (text)  => {
     try {
-        const updateTodo = await notion.pages.create({
+        await notion.pages.create({
             parent : {database_id: databaseId},
             properties : {
-                title : {
-                    title : [
+                
+                title: {
+                    
+                    "market" : [
                         {text:{
                             content : text
-                        }
+
+                        },
+
                     }
                     ]
                 }
