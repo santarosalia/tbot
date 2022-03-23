@@ -55,7 +55,7 @@ const options = {
     
       const detail = JSON.parse(body);
       
-      console.log(detail.size());
+      
       console.log(detail[1].market);
     });
 
