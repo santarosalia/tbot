@@ -45,7 +45,7 @@ let res;
 
 
   setTimeout(() => {
-  res = links({upbit : 'https://api.upbit.com/v1/market/all'});
+  res = links({'https://api.upbit.com/v1/market/all'});
   console.log(res);
   }, 5000);
   
