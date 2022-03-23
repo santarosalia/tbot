@@ -53,7 +53,7 @@ const options = {
     request(options, function (error, response, body) {
       if (error) throw new Error(error);
       const d = JSON.parse(body);
-      console.log(d.size);
+      console.log(d.length);
       console.log(d[1].market);
 
       
