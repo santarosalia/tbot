@@ -4,7 +4,6 @@ const Bot = require('node-telegram-bot-api');
 const TelegramBot = require('node-telegram-bot-api/lib/telegram');
 const {createSomething} = require('./notion');
 const request = require('request');
-const { response } = require('express');
 let bot;
 
 if(process.env.NODE_ENV === 'production') {
@@ -51,12 +50,17 @@ bot.on('message',async (msg) => {
   
   // }, 5000);
 
-const sdk = require('api')('@upbit/v1.3.1#1mld74kq6wh6ea');
-
-sdk['마켓-코드-조회']({isDetails: 'false'})
-.then(res => console.log(res))
-.catch(err => console.error(err));
-  
+  const options = {
+      method: 'GET',
+      url: 'https://api.upbit.com/v1/market/all?isDetails=false',
+      headers: {Accept: 'application/json'}
+    };
+    
+    request(options, function (error, response, body) {
+      if (error) throw new Error(error);
+    
+      console.log(body);
+    });
 
 
 module.exports = bot;
