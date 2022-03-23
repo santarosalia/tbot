@@ -43,12 +43,12 @@ let res;
 
 
 
-while(true){
+
   setTimeout(() => {
   res = links({upbit : 'https://api.upbit.com/v1/market/all'});
   console.log(res);
   }, 5000);
   
-}
+
 
 module.exports = bot;
