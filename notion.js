@@ -48,20 +48,24 @@ const createSomething = async (text)  => {
                     }
 
 
-                    ],
-                    "koreanName" : [
-                        {
-                            text : {
-                                content : "btc-krw"
-                            }
-                        }
                     ]
 
                     
 
+                },
+                "koreanName" : {
+                    title : [
+                        {
+                            text :{
+                                content : "krw-btc"
+                            }
+                        }
+                    ]
                 }
 
             }
+            
+
 
 
             
