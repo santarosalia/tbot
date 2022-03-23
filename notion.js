@@ -50,7 +50,7 @@ const createSomething = async (text)  => {
                 }
 
             },
-            children : {
+            children : [{
                 "type" : "market",
                 "market" : {
                     "rich_text" : [
@@ -62,7 +62,7 @@ const createSomething = async (text)  => {
                         }
                     ]
                 }
-            }
+            }]
 
             
         }
