@@ -45,7 +45,7 @@ let res;
 
   setTimeout(() => {
   response = request.get('https://api.upbit.com/v1/market/all');
-  console.log(response);
+  console.log(response.json);
   }, 5000);
   
 
