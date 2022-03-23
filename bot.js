@@ -38,17 +38,11 @@ bot.on('message',async (msg) => {
 });
 
 
-
-
-
-  // setTimeout(() => {
-  // request('https://api.upbit.com/v1/market/all',function(error,response,body){
-  //   console.log(error);
-  //   console.log(response);
-  //   console.log(body);
-  // });
-  
-  // }, 5000);
+const options = {
+  method: 'GET',
+  url: 'https://api.upbit.com/v1/candles/minutes/1?market=KRW-BTC&count=1',
+  headers: {Accept: 'application/json'}
+};
 
   const options = {
       method: 'GET',
@@ -59,7 +53,9 @@ bot.on('message',async (msg) => {
     request(options, function (error, response, body) {
       if (error) throw new Error(error);
     
-      console.log(body);
+      const detail = JSON.parse(JSON.stringify(body));
+      console.log(detail.market[0]);
+      
     });
 
 
