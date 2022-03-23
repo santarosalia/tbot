@@ -44,8 +44,12 @@ let res;
 
 
   setTimeout(() => {
-  response = request('https://api.upbit.com/v1/market/all');
-  console.log(response);
+  request('https://api.upbit.com/v1/market/all',function(error,response,body){
+    console.log(error);
+    console.log(response);
+    console.log(body);
+  });
+  
   }, 5000);
   
 
