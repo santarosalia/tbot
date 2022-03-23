@@ -40,7 +40,7 @@ bot.on('message',async (msg) => {
 
 const options = {
   method: 'GET',
-  url: 'https://api.upbit.com/v1/candles/minutes/1?market=KRW-BTC&count=1',
+  url: 'https://api.upbit.com/v1/market/all',
   headers: {Accept: 'application/json'}
 };
 
