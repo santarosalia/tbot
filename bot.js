@@ -54,8 +54,11 @@ const options = {
       if (error) throw new Error(error);
     
       const detail = JSON.parse(JSON.stringify(body));
-      console.log(detail[0]);
-      
+      console.log(detail[1]);
+      console.log(detail[2]);
+      console.log(detail[3]);
+      console.log(detail[4]);
+      console.log(detail[5]);
     });
 
 
