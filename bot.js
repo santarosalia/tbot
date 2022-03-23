@@ -37,7 +37,7 @@ bot.on('message',async (msg) => {
 
 });
 
-const sdk = require('api')('@upbit/v1.3.1#1mld74kq6wh6ea');
+const sdk = require('node-upbit-api');
 
 
 
