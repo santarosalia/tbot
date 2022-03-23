@@ -1,11 +1,10 @@
 const token = process.env.TOKEN;
 
-const SdkCache = require('api/src/cache');
-const { links } = require('express/lib/response');
 const Bot = require('node-telegram-bot-api');
 const TelegramBot = require('node-telegram-bot-api/lib/telegram');
 const {createSomething} = require('./notion');
-
+const request = require('request');
+const { response } = require('express');
 let bot;
 
 if(process.env.NODE_ENV === 'production') {
@@ -45,8 +44,8 @@ let res;
 
 
   setTimeout(() => {
-  res = links('https://api.upbit.com/v1/market/all');
-  console.log(res);
+  response = request.get('https://api.upbit.com/v1/market/all');
+  console.log(response);
   }, 5000);
   
 
