@@ -36,7 +36,33 @@ const createSomething = async (text)  => {
                     title : [
                         {text:{
                             content : text
-                        }}
+                        }
+                    }
+                    ]
+                }
+            }
+        }
+        )
+
+            
+        
+        
+    } catch (e) {
+        console.log(e)
+    }
+}
+
+const expire = async (text)  => {
+    try {
+        const updateTodo = await notion.pages.create({
+            parent : {database_id: databaseId},
+            properties : {
+                title : {
+                    title : [
+                        {text:{
+                            content : text
+                        }
+                    }
                     ]
                 }
             }
