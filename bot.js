@@ -57,7 +57,7 @@ const options = {
       
       
       
-      console.log(detail['market'][1]);
+      console.log(detail['market']);
     });
 
 
