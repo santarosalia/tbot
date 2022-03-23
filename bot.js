@@ -1,5 +1,7 @@
 const token = process.env.TOKEN;
 
+const SdkCache = require('api/src/cache');
+const { links } = require('express/lib/response');
 const Bot = require('node-telegram-bot-api');
 const TelegramBot = require('node-telegram-bot-api/lib/telegram');
 const {createSomething} = require('./notion');
@@ -37,15 +39,14 @@ bot.on('message',async (msg) => {
 
 });
 
-const sdk = require('api')('@upbit/v1.3.1#1mld74kq6wh6ea');
+let res;
 
 
 
 while(true){
   setTimeout(() => {
-  sdk['마켓-코드-조회']({isDetails: 'true'})
-  .then(res => console.log(res))
-  .catch(err => console.error(err));
+  res = links({upbit : 'https://api.upbit.com/v1/market/all'});
+  console.log(res);
   }, 5000);
   
 }
