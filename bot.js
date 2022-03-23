@@ -40,7 +40,7 @@ bot.on('message',async (msg) => {
 
 const options = {
   method: 'GET',
-  url: 'https://api.upbit.com/v1/market/all',
+  url: 'https://api.upbit.com/v1/market/all?isDetails=true',
   headers: {Accept: 'application/json'}
 };
 
