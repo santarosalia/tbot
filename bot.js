@@ -53,19 +53,6 @@ const options = {
     };
     
     
-    let a = 1;
-    while(a==1){
-      
-     
-
-      
-      dkm().then();
-      
-       
-      
-      
-      
-    }
 
     const dkm = async = () =>{
       try{
@@ -97,6 +84,21 @@ const options = {
       console.log(e);
       }
     }
+    let a = 1;
+    while(a==1){
+      
+     
+
+      
+      dkm().then();
+      
+       
+      
+      
+      
+    }
+
+
     
     
     // request(options, function (error, response, body) {
