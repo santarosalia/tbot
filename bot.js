@@ -21,19 +21,20 @@ bot.on('message',async (msg) => {
   
   const name = msg.from.first_name;
   if(msg.text=='희망'){
+    console.log(msg.chat.id);
     bot.sendMessage(msg.chat.id,'우주대존예여신!');
     
   }
   if(msg.text=='전체보기'){
     bot.sendMessage(msg.chat.id,'전체보기',{
       "reply_markup" : {
-        "keyboard" : [["전체보기"]]
+        "keyboard" : [["전체보기"],["BTC-KRW"]]
 
       }
     }).then();
 
   }
-  //await createSomething(msg.text).then();
+  
 
 });
 
@@ -46,45 +47,41 @@ const options = {
 
   const options2 = {
       method: 'GET',
-      url: 'https://api.upbit.com/v1/candles/minutes/1?market=KRW-BTC&count=1',
+      url: 'https://api.upbit.com/v1/candles/minutes/1?market=KRW-BTC&count=5',
       headers: {Accept: 'application/json'}
     };
+
+    while(true){
+      setTimeout(() => {
+        request(options2,function(error,response,body){
+          if (error) throw new Error(error);
+          const info = JSON.parse(body);
+          const tradePrice1 = info[0].trade_price;
+          const tradePrice5 = info[4].trade_price;
+          const result = tradePrice1-tradePrice5;
+
+
+
+        });
+      }, 60000);
+    }
     
-    request(options, function (error, response, body) {
-      if (error) throw new Error(error);
-      const info = JSON.parse(body);
-      
-
-      for(i in info){
-        
-        const market = info[i].market;
-        const koreanName = info[i].korean_name;
-        const englishName = info[i].english_name;
-        const marketWarning = info[i].market_warning;
-        
-        
-        
-        
-        createSomething(market,koreanName,englishName,marketWarning).then();
-        
-      }
-    });
-
-    // request(options,error,response,async(body) =>{
+    // request(options, function (error, response, body) {
+    //   if (error) throw new Error(error);
     //   const info = JSON.parse(body);
-    //   console.log(body);
-    //   console.log("ㅇㅇㅇㅇㅇ");
-    //   console.log(info);
       
-    //   for(oneInfo in info){
-    //     console.log(oneInfo);
-    //     console.log(oneInfo.market);
+
+    //   for(i in info){
         
-    //     const market = oneInfo.market
-    //     const koreanName = oneInfo.korean_name
-    //     const englishName = oneInfo.english_name
-    //     const marketWarning = oneInfo.market_warning
-    //     await createSomething(market,koreanName,englishName,marketWarning).then();
+    //     const market = info[i].market;
+    //     const koreanName = info[i].korean_name;
+    //     const englishName = info[i].english_name;
+    //     const marketWarning = info[i].market_warning;
+        
+        
+        
+        
+    //     createSomething(market,koreanName,englishName,marketWarning).then();
         
     //   }
     // });
