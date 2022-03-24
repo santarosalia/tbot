@@ -68,6 +68,7 @@ const options = {
     }
 
     const dkm = async = () =>{
+      try{
       let result;
       setTimeout(() => {
         request(options2,function(error,response,body){
@@ -91,6 +92,10 @@ const options = {
       }, 300000);
 
       bot.sendMessage('5133524983',result).then();
+    }
+    catch(e){
+      console.log(e);
+      }
     }
     
     
