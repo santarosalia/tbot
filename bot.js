@@ -78,9 +78,12 @@ const options = {
     const date = new Date();
     const minutes =date.getMinutes();
     const seconds = date.getSeconds();
-    if(seconds==0){
+    if(minutes%5 == 0 && seconds==0){
       send2().then();
-      bool = false;
+      setTimeout(() => {
+        bool = false;
+        
+      }, 2000);
     }
     
 
