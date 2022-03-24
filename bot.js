@@ -58,38 +58,33 @@ const options = {
       headers: {Accept: 'application/json'}
     };
     
-    const send2 = async()=>{
+    
 
     
-    request(options2,function(error,response,body){
-      if (error) throw new Error(error);
-      const info = JSON.parse(body);
-      
-      
-      
-      const tradePrice1 = info[0].trade_price;
-      const tradePrice5 = info[4].trade_price;
-
-      const result = tradePrice1-tradePrice5;
-      
-      
-      
-      bot.sendMessage('5133524983',result).then();
-    });
+    
   
-  }    
+    
 
   
   function loop2(){
 
+      request(options2,function(error,response,body){
+        if (error) throw new Error(error);
+        const info = JSON.parse(body);
+        
+        
+        
+        const tradePrice1 = info[0].trade_price;
+        const tradePrice5 = info[4].trade_price;
   
-    const date = new Date();
-    const minutes =date.getMinutes();
-    const seconds = date.getSeconds();
-    if(minutes%5 == 0 && seconds==0){
-      send2().then();
+        const result = tradePrice1-tradePrice5;
+        
+        
+        
+        bot.sendMessage('5133524983',result).then();
+      });
       
-    }
+    
   }
   poll(loop2,3000);
   
