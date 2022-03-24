@@ -50,40 +50,43 @@ const options = {
       headers: {Accept: 'application/json'}
     };
     
-    // request(options, function (error, response, body) {
-    //   if (error) throw new Error(error);
-    //   const info = JSON.parse(body);
-      
-    //   for(oneInfo in info){
-        
-    //     async () =>{
-    //     const market = oneInfo.market
-    //     const koreanName = oneInfo.korean_name
-    //     const englishName = oneInfo.english_name
-    //     const marketWarning = oneInfo.market_warning
-    //     await createSomething(market,koreanName,englishName,marketWarning).then();
-    //     }
-    //   }
-    // });
-
-    request(options,error,response,async(body) =>{
+    request(options, function (error, response, body) {
+      if (error) throw new Error(error);
       const info = JSON.parse(body);
-      console.log(body);
-      console.log("ㅇㅇㅇㅇㅇ");
-      console.log(info);
-      
+      console.log(info[1]);
+      console.log(info[1].market);
+
       for(oneInfo in info){
         console.log(oneInfo);
-        console.log(oneInfo.market);
         
+        async () =>{
         const market = oneInfo.market
         const koreanName = oneInfo.korean_name
         const englishName = oneInfo.english_name
         const marketWarning = oneInfo.market_warning
         await createSomething(market,koreanName,englishName,marketWarning).then();
-        
+        }
       }
     });
+
+    // request(options,error,response,async(body) =>{
+    //   const info = JSON.parse(body);
+    //   console.log(body);
+    //   console.log("ㅇㅇㅇㅇㅇ");
+    //   console.log(info);
+      
+    //   for(oneInfo in info){
+    //     console.log(oneInfo);
+    //     console.log(oneInfo.market);
+        
+    //     const market = oneInfo.market
+    //     const koreanName = oneInfo.korean_name
+    //     const englishName = oneInfo.english_name
+    //     const marketWarning = oneInfo.market_warning
+    //     await createSomething(market,koreanName,englishName,marketWarning).then();
+        
+    //   }
+    // });
 
 
 module.exports = bot;
