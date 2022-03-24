@@ -32,6 +32,7 @@ bot.on('message',async (msg) => {
 
       }
     }).then();
+    
 
   }
   
@@ -52,8 +53,8 @@ const options = {
     };
     
     
-    
-    while(true){
+    let a = 1;
+    while(a==1){
       let result;
       let date = new Date;
       let min = date.getMinutes;
@@ -76,7 +77,7 @@ const options = {
   
         });
         bot.sendMessage('5133524983',result).then();
-
+        a =2;
       }
       
     }
