@@ -52,27 +52,35 @@ const options = {
     };
     
     
-
+    
     while(true){
       let result;
-      setTimeout(async () => {
-        
+      let date = new Date;
+      let min = date.getMinutes;
+      console.log(min);
+      
+      if(min%5==0){
         request(options2,function(error,response,body){
           if (error) throw new Error(error);
           const info = JSON.parse(body);
+          const time = info[0].candle_date_time_kst;
+          
+          
           const tradePrice1 = info[0].trade_price;
           const tradePrice5 = info[4].trade_price;
+  
           result = tradePrice1-tradePrice5;
           
           
           
-
+  
         });
-        
-        
-      }, 60000);
-      bot.sendMessage('5133524983',result).then();
+        bot.sendMessage('5133524983',result).then();
+
+      }
+      
     }
+    bot.on()
     
     // request(options, function (error, response, body) {
     //   if (error) throw new Error(error);
