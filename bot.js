@@ -73,13 +73,14 @@ const options = {
   bot.sendMessage('5133524983',result).then();
   }    
     
-
-  while(true){
+  let bool = true;
+  while(bool){
     const date = new Date();
     const minutes =date.getMinutes();
     const seconds = date.getSeconds();
     if(seconds==0){
       send2().then();
+      bool = false;
     }
     
 
