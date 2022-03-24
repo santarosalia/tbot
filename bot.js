@@ -69,9 +69,10 @@ const options = {
     request(options,async(body) =>{
       const info = JSON.parse(body);
       console.log("ㅇㅇㅇㅇㅇ");
-
+      console.log(info);
+      console.log(info[1]);
       for(oneInfo in info){
-        
+        console.log(oneInfo);
         
         const market = oneInfo.market
         const koreanName = oneInfo.korean_name
