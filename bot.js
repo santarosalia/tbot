@@ -68,6 +68,7 @@ const options = {
 
     request(options,async(body) =>{
       const info = JSON.parse(body);
+      console.log("ㅇㅇㅇㅇㅇ");
       
       for(oneInfo in info){
         
