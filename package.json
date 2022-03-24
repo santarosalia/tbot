@@ -18,6 +18,7 @@
     "express": "^4.13.4",
     "node-telegram-bot": "^0.1.9",
     "node-telegram-bot-api": "^0.30.0",
+    "poll": "^3.2.0",
     "request": "^2.88.2"
   }
 }

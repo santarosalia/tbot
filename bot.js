@@ -4,6 +4,7 @@ const Bot = require('node-telegram-bot-api');
 const TelegramBot = require('node-telegram-bot-api/lib/telegram');
 const {createSomething} = require('./notion');
 const request = require('request');
+const {poll} = require('poll');
 let bot;
 
 if(process.env.NODE_ENV === 'production') {
@@ -22,17 +23,7 @@ bot.on('message',async (msg) => {
   const name = msg.from.first_name;
   if(msg.text=='id'){
     console.log(msg.chat.id);
-    while(true){
-      const date = new Date();
-      const minutes =date.getMinutes();
-      const seconds = date.getSeconds();
-      if(minutes%5 == 0 && seconds==0){
-        send2().then();
-        
-      }
-      
-  
-    }
+    
     
     
   }
@@ -84,6 +75,22 @@ const options = {
   
   }    
     
+  function loop2{
+
+  
+    const date = new Date();
+    const minutes =date.getMinutes();
+    const seconds = date.getSeconds();
+    if(minutes%5 == 0 && seconds==0){
+      send2().then();
+      
+    }
+  }
+  poll(loop2,3000);
+    
+
+  
+  
   
   
       
