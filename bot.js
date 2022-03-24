@@ -64,7 +64,7 @@ const options = {
         request(options2,function(error,response,body){
           if (error) throw new Error(error);
           const info = JSON.parse(body);
-          const time = info[0].candle_date_time_kst;
+          
           
           
           const tradePrice1 = info[0].trade_price;
@@ -79,7 +79,7 @@ const options = {
         bot.sendMessage('5133524983',result).then();
         
       }
-      a =2;
+      
       
     }
     
