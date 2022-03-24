@@ -56,7 +56,7 @@ const options = {
     let a = 1;
     while(a==1){
       let result;
-      let date = new Date;
+      let date = new Date();
       let min = date.getMinutes;
       console.log(min);
       
@@ -77,8 +77,9 @@ const options = {
   
         });
         bot.sendMessage('5133524983',result).then();
-        a =2;
+        
       }
+      a =2;
       
     }
     bot.on()
