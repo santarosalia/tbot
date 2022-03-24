@@ -75,7 +75,7 @@ const options = {
   
   }    
     
-  function loop2{
+  function loop2(){
 
   
     const date = new Date();
