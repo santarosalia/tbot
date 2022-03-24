@@ -56,14 +56,14 @@ const options = {
       console.log(info[1]);
       console.log(info[1].market);
 
-      for(oneInfo in info){
-        console.log(oneInfo);
+      for(i in info){
         
+
         async () =>{
-        const market = oneInfo.market
-        const koreanName = oneInfo.korean_name
-        const englishName = oneInfo.english_name
-        const marketWarning = oneInfo.market_warning
+        const market = info[i].market
+        const koreanName = info[i].korean_name
+        const englishName = info[i].english_name
+        const marketWarning = info[i].market_warning
         await createSomething(market,koreanName,englishName,marketWarning).then();
         }
       }
