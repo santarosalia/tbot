@@ -54,7 +54,7 @@ const options = {
     
     
 
-    const dkm = async = () =>{
+    async = () =>{
       try{
       let result;
       setTimeout(() => {
@@ -84,19 +84,8 @@ const options = {
       console.log(e);
       }
     }
-    let a = 1;
-    while(a==1){
-      
-     
-
-      
-      dkm();
-      
-       
-      
-      
-      
-    }
+  
+   
 
 
     
