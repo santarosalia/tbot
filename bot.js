@@ -51,19 +51,9 @@ const options = {
       headers: {Accept: 'application/json'}
     };
 
-    request(options2,function(error,response,body){
-      if (error) throw new Error(error);
-      const info = JSON.parse(body);
-      const tradePrice1 = info[0].trade_price;
-      const tradePrice5 = info[4].trade_price;
-      const result = tradePrice1-tradePrice5;
-      
-      bot.sendMessage('5133524983',result).then();
-      
+    
 
-    });
-
-    while(1==2){
+    while(true){
       setTimeout(() => {
         request(options2,function(error,response,body){
           if (error) throw new Error(error);
