@@ -51,7 +51,7 @@ const options = {
       headers: {Accept: 'application/json'}
     };
 
-    while(true){
+    while(1==2){
       setTimeout(() => {
         request(options2,function(error,response,body){
           if (error) throw new Error(error);
