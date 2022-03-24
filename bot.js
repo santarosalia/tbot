@@ -4,6 +4,7 @@ const Bot = require('node-telegram-bot-api');
 const TelegramBot = require('node-telegram-bot-api/lib/telegram');
 const {createSomething} = require('./notion');
 const request = require('request');
+import { poll } from 'poll';
 
 
 let bot;
