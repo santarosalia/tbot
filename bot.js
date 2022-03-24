@@ -77,7 +77,7 @@ const options = {
     });
   
   }    
-  const { poll } = require('poll');  
+  const { poll } = require('poll/dist/poll.js');  
   function loop2(){
 
   
