@@ -57,8 +57,8 @@ const options = {
     while(a==1){
       let result;
       let date = new Date();
-      let min = date.getMinutes;
-      console.log(min);
+      let minute = date.getMinutes;
+      console.log(minute);
       
       if(min%5==0){
         request(options2,function(error,response,body){
