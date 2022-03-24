@@ -71,7 +71,7 @@ const options = {
         
         
       }, 60000);
-      await bot.sendMessage('5133524983',result).then();
+      bot.sendMessage('5133524983',result).then();
     }
     
     // request(options, function (error, response, body) {
