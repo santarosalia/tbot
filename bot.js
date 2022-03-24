@@ -52,38 +52,42 @@ const options = {
       headers: {Accept: 'application/json'}
     };
     
+    const send2 = async()=>{
+
+    
+    request(options2,function(error,response,body){
+      if (error) throw new Error(error);
+      const info = JSON.parse(body);
+      
+      
+      
+      const tradePrice1 = info[0].trade_price;
+      const tradePrice5 = info[4].trade_price;
+
+      const result = tradePrice1-tradePrice5;
+      
+      
+      
+      
+    });
+  bot.sendMessage('5133524983',result).then();
+  }    
     
 
-    async = () =>{
-      try{
-      let result;
-      setTimeout(() => {
-        request(options2,function(error,response,body){
-          if (error) throw new Error(error);
-          const info = JSON.parse(body);
-          
-          
-          
-          const tradePrice1 = info[0].trade_price;
-          const tradePrice5 = info[4].trade_price;
-  
-           result = tradePrice1-tradePrice5;
-          
-          
-          
-          
-        });
-        
-        
-        
-      }, 300000);
+  while(true){
+    const date = new Date();
+    const minutes =date.getMinutes();
+    const seconds = date.getSeconds();
+    if(seconds==0){
+      send2().then();
+    }
+    
 
-      bot.sendMessage('5133524983',result).then();
-    }
-    catch(e){
-      console.log(e);
-      }
-    }
+  }
+      
+      
+        
+    
   
    
 
