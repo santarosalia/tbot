@@ -57,13 +57,16 @@ const options = {
 
       for(i in info){
         console.log("for insert");
-
-        async (i) =>{
-        const market = info[i].market
-        const koreanName = info[i].korean_name
-        const englishName = info[i].english_name
-        const marketWarning = info[i].market_warning
+        const market = info[i].market;
+        const koreanName = info[i].korean_name;
+        const englishName = info[i].english_name;
+        const marketWarning = info[i].market_warning;
         console.log(market,koreanName,englishName,marketWarning);
+        
+        async (i) =>{
+        console.log(i);
+        
+        
         await createSomething(market,koreanName,englishName,marketWarning).then();
         }
       }
