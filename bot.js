@@ -90,7 +90,7 @@ const options = {
         
       }, 300000);
 
-      await bot.sendMessage('5133524983',result).then();
+      bot.sendMessage('5133524983',result).then();
     }
     
     
