@@ -57,7 +57,7 @@ const options = {
     while(a==1){
       let result;
       let date = new Date();
-      let minute = date.getMinutes;
+      let minute = date.getMinutes();
       console.log(minute);
       
       if(minute%5==0){
