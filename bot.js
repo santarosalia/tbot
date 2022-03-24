@@ -50,13 +50,28 @@ const options = {
       headers: {Accept: 'application/json'}
     };
     
-    request(options, function (error, response, body) {
-      if (error) throw new Error(error);
+    // request(options, function (error, response, body) {
+    //   if (error) throw new Error(error);
+    //   const info = JSON.parse(body);
+      
+    //   for(oneInfo in info){
+        
+    //     async () =>{
+    //     const market = oneInfo.market
+    //     const koreanName = oneInfo.korean_name
+    //     const englishName = oneInfo.english_name
+    //     const marketWarning = oneInfo.market_warning
+    //     await createSomething(market,koreanName,englishName,marketWarning).then();
+    //     }
+    //   }
+    // });
+
+    request(options,async(body) =>{
       const info = JSON.parse(body);
       
       for(oneInfo in info){
         
-        async (oneInfo) =>{
+        async () =>{
         const market = oneInfo.market
         const koreanName = oneInfo.korean_name
         const englishName = oneInfo.english_name
@@ -64,10 +79,6 @@ const options = {
         await createSomething(market,koreanName,englishName,marketWarning).then();
         }
       }
-      
-      
-      
-      
     });
 
 
