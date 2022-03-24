@@ -82,7 +82,7 @@ const options = {
       a =2;
       
     }
-    bot.on()
+    
     
     // request(options, function (error, response, body) {
     //   if (error) throw new Error(error);
