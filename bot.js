@@ -77,7 +77,8 @@ const options = {
     });
   
   }    
-  const { poll } = require('poll/dist/poll');  
+  <script type="module">
+  const { poll } = require('poll');  
   function loop2(){
 
   
@@ -90,7 +91,7 @@ const options = {
     }
   }
   poll(loop2,3000);
-    
+  </script>
 
   
   
