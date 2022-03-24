@@ -4,7 +4,7 @@ const Bot = require('node-telegram-bot-api');
 const TelegramBot = require('node-telegram-bot-api/lib/telegram');
 const {createSomething} = require('./notion');
 const request = require('request');
-const { poll } = require('poll');
+const { poll } = require('./poll');
 
 
 
