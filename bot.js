@@ -77,8 +77,8 @@ const options = {
     });
   
   }    
-  <script type="module">
-  const { poll } = require('poll');  
+
+  import { poll } from 'poll'
   function loop2(){
 
   
@@ -91,7 +91,7 @@ const options = {
     }
   }
   poll(loop2,3000);
-  </script>
+  
 
   
   
