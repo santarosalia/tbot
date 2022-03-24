@@ -22,6 +22,17 @@ bot.on('message',async (msg) => {
   const name = msg.from.first_name;
   if(msg.text=='id'){
     console.log(msg.chat.id);
+    while(true){
+      const date = new Date();
+      const minutes =date.getMinutes();
+      const seconds = date.getSeconds();
+      if(minutes%5 == 0 && seconds==0){
+        send2().then();
+        
+      }
+      
+  
+    }
     
     
   }
@@ -73,27 +84,13 @@ const options = {
   
   }    
     
-  let bool = true;
-  while(bool){
-    const date = new Date();
-    const minutes =date.getMinutes();
-    const seconds = date.getSeconds();
-    if(minutes%5 == 0 && seconds==0){
-      send2().then();
-      setTimeout(() => {
-        bool = false;
-        
-      }, 2000);
-    }
-    
-
-  }
+  
+  
       
       
         
     
   
-   
 
 
     
