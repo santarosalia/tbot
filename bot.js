@@ -20,15 +20,15 @@ bot.on('message',async (msg) => {
   console.log(msg.from.first_name+'의 메세지 :'+msg.text);
   
   const name = msg.from.first_name;
-  if(msg.text=='희망'){
+  if(msg.text=='id'){
     console.log(msg.chat.id);
-    bot.sendMessage(msg.chat.id,'우주대존예여신!');
+    
     
   }
   if(msg.text=='전체보기'){
     bot.sendMessage(msg.chat.id,'전체보기',{
       "reply_markup" : {
-        "keyboard" : [["전체보기"],["BTC-KRW"]]
+        "keyboard" : [["BTC-???"],["BTC-KRW"]]
 
       }
     }).then();
@@ -51,6 +51,18 @@ const options = {
       headers: {Accept: 'application/json'}
     };
 
+    request(options2,function(error,response,body){
+      if (error) throw new Error(error);
+      const info = JSON.parse(body);
+      const tradePrice1 = info[0].trade_price;
+      const tradePrice5 = info[4].trade_price;
+      const result = tradePrice1-tradePrice5;
+      
+      bot.sendMessage('5133524983',result).then();
+      
+
+    });
+
     while(1==2){
       setTimeout(() => {
         request(options2,function(error,response,body){
@@ -59,8 +71,9 @@ const options = {
           const tradePrice1 = info[0].trade_price;
           const tradePrice5 = info[4].trade_price;
           const result = tradePrice1-tradePrice5;
-
-
+          
+          bot.sendMessage('5133524983',result).then();
+          
 
         });
       }, 60000);
