@@ -53,13 +53,12 @@ const options = {
     request(options, function (error, response, body) {
       if (error) throw new Error(error);
       const info = JSON.parse(body);
-      console.log(info[1]);
-      console.log(info[1].market);
+      
 
       for(i in info){
-        
+        console.log("for insert");
 
-        async () =>{
+        async (i) =>{
         const market = info[i].market
         const koreanName = info[i].korean_name
         const englishName = info[i].english_name
