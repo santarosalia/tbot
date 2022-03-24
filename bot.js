@@ -66,7 +66,7 @@ const options = {
     //   }
     // });
 
-    request(options,async(body) =>{
+    request(options,response,async(body) =>{
       const info = JSON.parse(body);
       console.log(body);
       console.log("ㅇㅇㅇㅇㅇ");
