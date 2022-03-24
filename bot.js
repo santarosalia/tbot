@@ -60,7 +60,7 @@ const options = {
       let minute = date.getMinutes;
       console.log(minute);
       
-      if(min%5==0){
+      if(minute%5==0){
         request(options2,function(error,response,body){
           if (error) throw new Error(error);
           const info = JSON.parse(body);
