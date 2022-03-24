@@ -55,11 +55,12 @@ const options = {
       const info = JSON.parse(body);
       
       for(oneInfo in info){
+        
+        async (oneInfo) =>{
         const market = oneInfo.market
         const koreanName = oneInfo.korean_name
         const englishName = oneInfo.english_name
         const marketWarning = oneInfo.market_warning
-        async (market,koreanName,englishName,marketWarning) =>{
         await createSomething(market,koreanName,englishName,marketWarning).then();
         }
       }
