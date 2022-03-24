@@ -59,7 +59,7 @@ const options = {
      
 
       
-      dkm;
+      dkm().then();
       
        
       
