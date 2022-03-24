@@ -58,7 +58,7 @@ const options = {
       let result;
       let date = new Date();
       let minute = date.getMinutes();
-      console.log(minute);
+      
       
       if(minute%5==0){
         request(options2,function(error,response,body){
