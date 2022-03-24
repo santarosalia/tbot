@@ -86,7 +86,7 @@ const options = {
       
     
   }
-  poll(loop2,3000);
+  poll(loop2,60000);
   
 
   
