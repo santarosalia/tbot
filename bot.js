@@ -81,7 +81,7 @@ const options = {
         const onePer = tradePrice5/10000;
         
         
-        const result = tradePrice5-tradePrice1;
+        const result = tradePrice1-tradePrice5;
         
         if((tradePrice5-tradePrice1) >=onePer){
           bot.sendMessage('5133524983',timePast.split('T')[1]+' 기준'+'\n'+market+'의 가격 : '+tradePrice5+' => '+tradePrice1+'\n'+'0.01% 이상 하락 : '+result+'원').then();
