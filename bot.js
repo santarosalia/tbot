@@ -78,7 +78,7 @@ const options = {
         const timePresenet = info[0].candle_date_time_kst;
         const tradePrice5 = info[4].trade_price;
         const timePast = info[4].candle_date_time_kst;
-        const onePer = tradePrice5/10000;
+        const onePer = tradePrice5/100;
         const result = tradePrice1-tradePrice5;
 
         const tp1 = parseInt(tradePrice1).toLocaleString();
