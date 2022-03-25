@@ -78,16 +78,16 @@ const options = {
         const timePresenet = info[0].candle_date_time_kst;
         const tradePrice5 = info[4].trade_price;
         const timePast = info[4].candle_date_time_kst;
-        const onePer = tradePrice5/1000;
+        const onePer = tradePrice5/100;
         const result = tradePrice1-tradePrice5;
 
         const tp1 = parseInt(tradePrice1).toLocaleString();
         const tp5 =parseInt(tradePrice5).toLocaleString();
         const rs = parseInt(result).toLocaleString();
         if((tradePrice5-tradePrice1) >=onePer){
-          bot.sendMessage('5133524983',timePast.split('T')[1]+' 기준'+'\n'+market+'의 가격 : '+tp5+'원 => '+tp1+'원\n'+'0.1% 이상 하락 : '+rs+'원').then();
+          bot.sendMessage('5133524983',timePast.split('T')[1]+' 기준'+'\n'+market+'의 가격 : '+tp5+'원 => '+tp1+'원\n'+'1% 이상 하락 : '+rs+'원').then();
         }else if((tradePrice1-tradePrice5) >=onePer){
-          bot.sendMessage('5133524983',timePast.split('T')[1]+' 기준'+'\n'+market+'의 가격 : '+tp5+'원 => '+tp1+'원\n'+'0.1% 이상 상승 : '+rs+'원').then();
+          bot.sendMessage('5133524983',timePast.split('T')[1]+' 기준'+'\n'+market+'의 가격 : '+tp5+'원 => '+tp1+'원\n'+'1% 이상 상승 : '+rs+'원').then();
         }
         
         
