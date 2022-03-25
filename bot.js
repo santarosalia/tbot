@@ -84,10 +84,11 @@ const options = {
         const tp1 = parseInt(tradePrice1).toLocaleString();
         const tp5 =parseInt(tradePrice5).toLocaleString();
         const rs = parseInt(result).toLocaleString();
+        const per2 = parseFloat((result/tradePrice5)*100).toFixed(2);
         if((tradePrice5-tradePrice1) >=onePer){
-          bot.sendMessage('5133524983',timePast.split('T')[1]+' 기준'+'\n'+market+'의 가격 : '+tp5+'원 => '+tp1+'원\n'+(result/tradePrice5)*100+'% 하락 : '+rs+'원').then();
+          bot.sendMessage('5133524983',timePast.split('T')[1]+' 기준'+'\n'+market+'의 가격 : '+tp5+'원 => '+tp1+'원\n'+per2+'% 하락 : '+rs+'원').then();
         }else if((tradePrice1-tradePrice5) >=onePer){
-          bot.sendMessage('5133524983',timePast.split('T')[1]+' 기준'+'\n'+market+'의 가격 : '+tp5+'원 => '+tp1+'원\n'+(result/tradePrice5)*100+'% 상승 : '+rs+'원').then();
+          bot.sendMessage('5133524983',timePast.split('T')[1]+' 기준'+'\n'+market+'의 가격 : '+tp5+'원 => '+tp1+'원\n'+per2+'% 상승 : '+rs+'원').then();
         }
         
         
