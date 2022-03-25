@@ -32,7 +32,7 @@ bot.on('message',async (msg) => {
     
   }
   if(msg.text=='전체보기'){
-    bot.sendMessage(msg.chat.id,'전체보기',{
+    bot.sendMessage(msg.chat.id,'',{
       "reply_markup" : {
         "keyboard" : [["BTC-???"],["BTC-KRW"]]
 
@@ -73,19 +73,27 @@ const options = {
         const info = JSON.parse(body);
         
         
-        
+        const market = info[0].market;
         const tradePrice1 = info[0].trade_price;
+        const timePresenet = info[0].candle_date_time_kst;
         const tradePrice5 = info[4].trade_price;
-  
+        const timePast = info[4].candle_date_time_kst;
+        const onePer = tradePrice5/100;
+        
         const result = tradePrice1-tradePrice5;
+        if((tradePrice5+onePer) >=tradePrice1){
+          bot.sendMessage('5133524983',timePast+'기준'+'\n'+market+'의 가격 :'+tradePrice5+'에서'+tradePrice1+'로'+'1% 이상의 가격변동 :'+onePer+'원 발생').then();
+        }else if((tradePrice5-onePer) <=tradePrice1){
+          bot.sendMessage('5133524983',timePast+'기준'+'\n'+market+'의 가격 :'+tradePrice5+'에서'+tradePrice1+'로'+'1% 이상의 가격변동 :'+onePer+'원 발생').then();
+        }
         
         
         
-        bot.sendMessage('5133524983',result).then();
       });
       
     
   }
+  poll(loop2,60000);
   
   
 
