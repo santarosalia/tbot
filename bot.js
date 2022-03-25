@@ -80,8 +80,8 @@ const options = {
         const timePast = info[4].candle_date_time_kst;
         const onePer = tradePrice5/10000;
         
-        const plus = tradePrice1-tradePrice5;
-        const minus = tradePrice5-tradePrice1;
+        const minus = tradePrice1-tradePrice5;
+        const plus = tradePrice5-tradePrice1;
         
         if((tradePrice5-tradePrice1) >=onePer){
           bot.sendMessage('5133524983',timePast.split('T')[1]+' 기준'+'\n'+market+'의 가격 : '+tradePrice5+' => '+tradePrice1+'\n'+'0.01% 이상 하락 : '+plus+'원').then();
