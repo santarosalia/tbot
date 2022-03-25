@@ -84,9 +84,9 @@ const options = {
         const minus = tradePrice1-tradePrice5;
         
         if((tradePrice5-tradePrice1) >=onePer){
-          bot.sendMessage('5133524983',timePast+' 기준'+'\n'+market+'의 가격 : '+tradePrice5+'=>'+tradePrice1+'\n'+'1% 이상 상승 : '+plus+'원').then();
+          bot.sendMessage('5133524983',timePast+' 기준'+'\n'+market+'의 가격 : '+tradePrice5+' => '+tradePrice1+'\n'+'1% 이상 상승 : '+plus+'원').then();
         }else if((tradePrice1-tradePrice5) >=onePer){
-          bot.sendMessage('5133524983',timePast+' 기준'+'\n'+market+'의 가격 : '+tradePrice5+'=>'+tradePrice1+'\n'+'1% 이상 하락 : '+minus+'원').then();
+          bot.sendMessage('5133524983',timePast+' 기준'+'\n'+market+'의 가격 : '+tradePrice5+' => '+tradePrice1+'\n'+'1% 이상 하락 : '+minus+'원').then();
         }
         
         
