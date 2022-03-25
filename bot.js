@@ -80,7 +80,7 @@ const options = {
         const timePast = info[4].candle_date_time_kst;
         const onePer = tradePrice5/100;
         
-        const plus = tradePrice1-tradePrice5;
+        const plus = tradePrice5-tradePrice1;
         const minus = tradePrice1-tradePrice5;
         
         if((tradePrice5-tradePrice1) >=onePer){
