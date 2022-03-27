@@ -32,7 +32,7 @@ bot.on('message',async (msg) => {
     
     }
     if(msg.text=='전체보기'){
-    bot.sendMessage(msg.chat.id,'',{
+    bot.sendMessage(msg.chat.id,'전체목록입니다',{
     "reply_markup" : {
         "keyboard" : [["BTC-???","BTC-KRW"]]
 
