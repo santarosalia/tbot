@@ -85,9 +85,10 @@ if(info[i].market_warning=='CAUTION'){
 }
 
 }
+console.log('request in'+warningList);
 bot.sendMessage(chatId,warningList);
 });
-
+console.log('request out'+warningList);
 });
 
 
