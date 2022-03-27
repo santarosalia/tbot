@@ -72,7 +72,7 @@ bot.onText(/\/list/,async(msg)=>{
 
 bot.onText(/\/warning/,async(msg)=>{
 const chatId = msg.chat.id;
-var warningList = '유의종목입니다.\n';
+let warningList = '유의종목입니다.\n';
 
 request(options,function(error,response,body){
 if(error) throw new Error(error);
@@ -85,9 +85,9 @@ if(info[i].market_warning=='CAUTION'){
 }
 
 }
-
-});
 bot.sendMessage(chatId,warningList);
+});
+
 });
 
 
