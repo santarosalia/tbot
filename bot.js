@@ -78,7 +78,7 @@ request(options,function(error,response,body){
 if(error) throw new Error(error);
 const info =JSON.parse(body);
 for(i in info){
-if(info[i].market_warning=='CAUTION'){
+if(info[i].market_warning=='CAUTION' && info[i].market ==='KRW'){
     const coinName =info[i].korean_name;
     warningList += coinName+'\n';
 
@@ -86,9 +86,9 @@ if(info[i].market_warning=='CAUTION'){
 
 }
 
-
+bot.sendMessage(chatId,warningList);
 });
-await bot.sendMessage(chatId,warningList);
+
 });
 
 
