@@ -83,8 +83,9 @@ if(info[i].market_warning=='CAUTION'){
     warningList += coinName+'\n';
 
 }
-bot.sendMessage(chatId,warningList);
+
 }
+bot.sendMessage(chatId,warningList);
 });
 
 });
