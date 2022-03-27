@@ -66,7 +66,7 @@ bot.onText(/\/list/,async(msg)=>{
 
         bot.sendMessage(chatId,'코인리스트',{
           "reply_markup" : {
-            "keyboard" : [list[0],list[1]][list[2],list[3]]
+            "keyboard" : [[list[0],list[1]][list[2],list[3]]]
           }
         });
     });
