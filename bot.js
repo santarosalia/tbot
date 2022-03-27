@@ -72,7 +72,7 @@ bot.onText(/\/list/,async(msg)=>{
 
 bot.onText(/\/warning/,async(msg)=>{
 const chatId = msg.chat.id;
-let warningList ='';
+let warningList = '유의종목입니다.\n';
 
 request(options,function(error,response,body){
 if(error) throw new Error(error);
