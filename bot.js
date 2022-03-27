@@ -50,7 +50,43 @@ bot.onText(/\/start/,async (msg) =>{
 });
 bot.onText(/\/help/,async(msg)=>{
     const chatId =msg.chat.id;
-    bot.sendMessage(chatId,'/list : 코인 리스트 확인하기\n/add : 구독할 코인 등록');
+    bot.sendMessage(chatId,'/list : 코인 리스트 확인하기\n/add : 구독할 코인 등록\n/warning : 유의종목 확인');
+});
+
+bot.onText(/\/list/,async(msg)=>{
+    const chatId =msg.chat.id;
+    request(options,function(error,response,body){
+        if (error) throw new Error(error);
+        const info = JSON.parse(body);
+        for(i in info){
+            const market = info[i].market;
+
+        }
+
+
+    });
+
+    bot.sendMessage(chatId,'');
+    
+});
+
+bot.onText(/\/warning/,async(msg)=>{
+const chatId = msg.chat.id;
+let warningList;
+
+request(options,function(error,response,body){
+if(error) throw new Error(error);
+const info =JSON.parse(body);
+for(i in info){
+if(info[i].market_warning=='CAUTION'){
+    const coinName =info[i].korean_name;
+    warningList += coinName+'\n';
+
+}
+bot.sendMessage(chatId,warningList);
+}
+});
+
 });
 
 
