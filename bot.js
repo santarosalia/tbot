@@ -58,15 +58,20 @@ bot.onText(/\/list/,async(msg)=>{
     request(options,function(error,response,body){
         if (error) throw new Error(error);
         const info = JSON.parse(body);
+        let list = [];
         for(i in info){
             const market = info[i].market;
-
+            list.push(market);
         }
 
-
+        bot.sendMessage(chatId,'코인리스트',{
+          "reply_markup" : {
+            "keyboard" : [list]
+          }
+        });
     });
 
-    bot.sendMessage(chatId,'');
+    
     
 });
 
