@@ -28,7 +28,7 @@ async function addItem(text) {
     }
 }
 
-const registId = async (chatId,market,englishName,marketWarning)  => {
+const registCoin = async (chatId,market,englishName,marketWarning)  => {
     try {
         await notion.pages.create({
             parent : {database_id: databaseId},
@@ -72,15 +72,12 @@ const myRegist = async (chatId)  => {
             }
         })
         
-        return items.results.map((list)=>{
-            const properties = JSON.parse(JSON.stringify(list.properties))
-            return properties.name.title[0].text.content
-        }).reduce((prev, curr)=> `${prev}\n${curr}`)
+        return items.results;
     } catch (e) {
         console.log(e)
     }
 }
-module.exports = {registId,myRegist}
+module.exports = {registCoin,myRegist}
 
 
 // const leftDateFive = async () => {

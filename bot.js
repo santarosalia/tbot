@@ -2,7 +2,7 @@ const token = process.env.TOKEN;
 
 const Bot = require('node-telegram-bot-api');
 const TelegramBot = require('node-telegram-bot-api/lib/telegram');
-const {registId,myRegist} = require('./notion');
+const {registCoin,myRegist} = require('./notion');
 const request = require('request');
 const { poll } = require('./poll');
 
@@ -50,7 +50,7 @@ bot.onText(/\/start/,async (msg) =>{
 });
 bot.onText(/\/help/,async(msg)=>{
     const chatId =msg.chat.id;
-    bot.sendMessage(chatId,'/list : 코인 리스트 확인하기\n/add : 구독할 코인 등록\n/warning : 유의종목 확인');
+    bot.sendMessage(chatId,'/myRegist : 구독중인 코인 확인\n/list : 코인 리스트 확인하기\n/add 마켓코드 : 구독할 코인 등록\n/warning : 유의종목 확인');
 });
 
 bot.onText(/\/list/,async(msg)=>{
@@ -97,16 +97,24 @@ bot.sendMessage(chatId,warningList);
 });
 bot.onText(/^\/add\sKRW-\w+/,async(msg)=>{
   const chatId =msg.chat.id;
-  const market = msg.text;
-  console.log(market);
+  const text = msg.text;
+  
+  const market = text.split(' ')[1];
+  registCoin(chatId,market);
+
+
+
+
   
   bot.sendMessage(chatId,'list add');
 });
 bot.onText(/\/myRegist/,async(msg)=>{
   const chatId = msg.chat.id;
+  const result = myRegist(chatId);
+  
 
 
-  bot.sendMessage(chatId,'등록내역');
+  bot.sendMessage(chatId,result);
 });
 
 
