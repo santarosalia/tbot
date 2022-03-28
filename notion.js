@@ -80,8 +80,13 @@ const myRegist = async (chatId)  => {
             }
             
         })
+        items.results.map((item)=>{
+            const properties = JSON.parse(JSON.stringify(item.properties));
+            const chatId = properties.chatId.title[0].content;
+            return chatId;
+
+        });
         
-        return items.results;
     } catch (e) {
         console.log(e)
     }
