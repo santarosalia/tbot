@@ -118,7 +118,8 @@ bot.onText(/\/myRegist/,async(msg)=>{
       console.log('넘어온 result : '+result);
     }
   );
-  
+  const result2 = myRegist(chatId.toString());
+  console.log('result2 : '+result2);
   
 
   bot.sendMessage(chatId,'1');
