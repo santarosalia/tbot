@@ -67,8 +67,11 @@ const myRegist = async (chatId)  => {
             database_id: process.env.NOTION_DATABASE_ID,
             filter : {
                 and : [
-                    {title : chatId
+                    {property : "chatId",
+                    title : chatId
+                    
                 }
+
                     
 
                 ]
