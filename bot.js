@@ -61,7 +61,10 @@ bot.onText(/\/list/,async(msg)=>{
         let list = '';
         for(i in info){
             const market = info[i].market;
-            list += market+'\n';
+            if(market.includes('KRW')){
+              list += market+'\n';
+            }
+            
             
         }
 
