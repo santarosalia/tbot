@@ -110,9 +110,13 @@ bot.onText(/^\/add\sKRW-\w+/,async(msg)=>{
 });
 bot.onText(/\/myRegist/,async(msg)=>{
   const chatId = msg.chat.id;
-  const result = myRegist(chatId.toString()).then();
   
-  console.log(result);
+  let resultList = [];
+  
+  await myRegist(chatId.toString()).then((chatId)=>{
+    resultList.push(...chatId);
+  });
+  console.log(resultList[0]);
   
 
   bot.sendMessage(chatId,'1');

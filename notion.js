@@ -86,8 +86,8 @@ const myRegist = async (chatId)  => {
             const chatId = properties.chatId.title[0].content;
             
             
-            Resolve(chatId);
-
+            return chatId;
+            
         });
         
     } catch (e) {
