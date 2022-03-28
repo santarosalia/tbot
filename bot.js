@@ -110,7 +110,7 @@ bot.onText(/^\/add\sKRW-\w+/,async(msg)=>{
 });
 bot.onText(/\/myRegist/,async(msg)=>{
   const chatId = msg.chat.id;
-  const result = myRegist(chatId.toString());
+  const result = myRegist(chatId);
   
 
 
