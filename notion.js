@@ -68,7 +68,9 @@ const myRegist = async (chatId)  => {
             filter : {
                 and : [
                     {property : "chatId",
-                    title : chatId
+                    rich_text : {
+                        equals : chatId
+                    }
                     
                 }
 
