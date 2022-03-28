@@ -100,7 +100,7 @@ bot.onText(/^\/add\sKRW-\w+/,async(msg)=>{
   const text = msg.text;
   
   const market = text.split(' ')[1];
-  registCoin(chatId,market);
+  registCoin(chatId.toString(),market);
 
 
 
@@ -114,7 +114,7 @@ bot.onText(/\/myRegist/,async(msg)=>{
   
 
 
-  bot.sendMessage(toString(chatId),result);
+  bot.sendMessage(chatId,result);
 });
 
 
