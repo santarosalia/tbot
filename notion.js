@@ -66,7 +66,7 @@ const myRegist = async (chatId)  => {
         const items = await notion.databases.query({
             database_id: process.env.NOTION_DATABASE_ID,
             filter : {
-                property : title,
+                property : "chatId",
                     "equals" : chatId
                      
                 
