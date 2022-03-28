@@ -58,17 +58,14 @@ bot.onText(/\/list/,async(msg)=>{
     request(options,function(error,response,body){
         if (error) throw new Error(error);
         const info = JSON.parse(body);
-        let list = [];
+        let list = '';
         for(i in info){
             const market = info[i].market;
-            list.push(market);
+            list += market+'\n';
+            
         }
 
-        bot.sendMessage(chatId,'코인리스트',{
-          "reply_markup" : {
-            "keyboard" : [[list[0],list[1]][list[2],list[3]]]
-          }
-        });
+        bot.sendMessage(chatId,'등록가능한 코인리스트입니다.\n'+list);
     });
 
     
