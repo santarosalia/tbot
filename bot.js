@@ -111,12 +111,12 @@ bot.onText(/^\/add\sKRW-\w+/,async(msg)=>{
 bot.onText(/\/myRegist/,async(msg)=>{
   const chatId = msg.chat.id;
   
-  let resultList = [];
+  
   
   await myRegist(chatId.toString()).then((result)=>{
-    console.log(result)
+    console.log('넘어온 결과 : '+result);
   });
-  console.log(resultList[0]);
+  
   
 
   bot.sendMessage(chatId,'1');

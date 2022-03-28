@@ -86,8 +86,8 @@ const myRegist = async (chatId)  => {
             
             //console.log(properties.chatId.title[0].text.content);
             console.log(properties.market.rich_text[0].text.content);
-            
-            return null;
+            const result = properties.market.rich_text[0].text.content;
+            return result;
             
         });
         
