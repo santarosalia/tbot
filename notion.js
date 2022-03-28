@@ -1,5 +1,6 @@
 const { Client } = require("@notionhq/client")
 const { getDatabase } = require("@notionhq/client/build/src/api-endpoints")
+const { response } = require("express")
 
 const notion = new Client({ auth: process.env.NOTION_KEY })
 
@@ -83,6 +84,8 @@ const myRegist = async (chatId)  => {
         items.results.map((item)=>{
             const properties = JSON.parse(JSON.stringify(item.properties));
             const chatId = properties.chatId.title[0].content;
+            
+            
             return chatId;
 
         });
