@@ -113,13 +113,11 @@ bot.onText(/\/myRegist/,async(msg)=>{
   
   
   
-  await myRegist(chatId.toString()).then((result)=>{
-    console.log('넘어온 결과 : '+result);
-  });
+  const result = await myRegist(chatId.toString()).then();
   
   
 
-  bot.sendMessage(chatId,'1');
+  bot.sendMessage(chatId,result);
 });
 
 
