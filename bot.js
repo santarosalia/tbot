@@ -95,7 +95,7 @@ bot.sendMessage(chatId,warningList);
 });
 
 });
-bot.onText(/\/add KRW-[\w]{3}/,async(msg)=>{
+bot.onText(/^\/add\sKRW-[A-Z]{3}$/,async(msg)=>{
   const chatId =msg.chat.id;
   bot.sendMessage(chatId,'list add');
 });
