@@ -112,9 +112,10 @@ bot.onText(/\/myRegist/,async(msg)=>{
   const chatId = msg.chat.id;
   const result = myRegist(chatId.toString());
   
+  console.log(result.then());
+  
 
-
-  bot.sendMessage(chatId,result.then());
+  bot.sendMessage(chatId,'1');
 });
 
 
