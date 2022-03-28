@@ -85,7 +85,7 @@ const myRegist = async (chatId)  => {
             const properties = JSON.parse(JSON.stringify(item.properties));
             const chatId = properties.chatId.title[0].content;
             
-            
+            console.log(chatId);
             return chatId;
             
         });
