@@ -114,7 +114,7 @@ bot.onText(/\/myRegist/,async(msg)=>{
   
 
 
-  bot.sendMessage(chatId,result);
+  bot.sendMessage(chatId,result.then());
 });
 
 
