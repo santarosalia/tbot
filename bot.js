@@ -2,7 +2,7 @@ const token = process.env.TOKEN;
 
 const Bot = require('node-telegram-bot-api');
 const TelegramBot = require('node-telegram-bot-api/lib/telegram');
-const {createSomething} = require('./notion');
+const {registId,myRegist} = require('./notion');
 const request = require('request');
 const { poll } = require('./poll');
 
@@ -97,7 +97,16 @@ bot.sendMessage(chatId,warningList);
 });
 bot.onText(/^\/add\sKRW-\w+/,async(msg)=>{
   const chatId =msg.chat.id;
+  const market = msg.text;
+  console.log(market);
+  
   bot.sendMessage(chatId,'list add');
+});
+bot.onText(/\/myRegist/,async(msg)=>{
+  const chatId = msg.chat.id;
+
+
+  bot.sendMessage(chatId,'등록내역');
 });
 
 

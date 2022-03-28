@@ -28,106 +28,32 @@ async function addItem(text) {
     }
 }
 
-const createSomething = async (market,koreanName,englishName,marketWarning)  => {
+const registId = async (chatId,market,englishName,marketWarning)  => {
     try {
         await notion.pages.create({
             parent : {database_id: databaseId},
             properties : {
                 title : {
                     title: [
-
                         {   
-
                             text:{
-                            content : market
-
+                            content : chatId
                         }
-
-
-
                     }
-
-
-                    ]
-
-                    
-
-                },
-                "koreanName" : {
-                    rich_text : [
-
-                        {
-
-                            text :{
-                                content : koreanName
-                            }
-                        }
                     ]
                 },
-                "englishName" : {
+                "market" : {
                     rich_text : [
-
                         {
-
                             text :{
-                                content : englishName
-                            }
-                        }
-                    ]
-                },
-                "marketWarning" : {
-                    rich_text : [
-
-                        {
-
-                            text :{
-                                content : marketWarning
+                                content : market 
                             }
                         }
                     ]
                 }
-
-            }
-            
-
-
-
-            
+            }     
         }
         )
-
-            
-        
-        
-    } catch (e) {
-        console.log(e)
-    }
-}
-
-const expire = async (text)  => {
-    try {
-        await notion.pages.create({
-            parent : {database_id: databaseId},
-            properties : {
-                
-                title: {
-                    
-                    "market" : [
-                        {text:{
-                            content : text
-
-                        },
-
-                    }
-                    ]
-                }
-            }
-        }
-        )
-
-            
-        
-        
     } catch (e) {
         console.log(e)
     }
@@ -135,15 +61,17 @@ const expire = async (text)  => {
 
 
 
-
-
-
-const allThings = async ()  => {
+const myRegist = async (chatId)  => {
     try {
         const items = await notion.databases.query({
             database_id: process.env.NOTION_DATABASE_ID,
+            filter : {
+                property : {
+                    title : chatId
+                }
+            }
         })
-
+        
         return items.results.map((list)=>{
             const properties = JSON.parse(JSON.stringify(list.properties))
             return properties.name.title[0].text.content
@@ -152,7 +80,7 @@ const allThings = async ()  => {
         console.log(e)
     }
 }
-module.exports = {createSomething}
+module.exports = {registId,myRegist}
 
 
 // const leftDateFive = async () => {
