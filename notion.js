@@ -28,7 +28,7 @@ async function addItem(text) {
     }
 }
 
-const registCoin = async (chatId,market,englishName,marketWarning)  => {
+const registCoin = async (chatId,market)  => {
     try {
         await notion.pages.create({
             parent : {database_id: databaseId},
