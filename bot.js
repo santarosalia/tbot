@@ -115,12 +115,8 @@ bot.onText(/\/myRegist/,async(msg)=>{
   
   
   const result2 = await myRegist(chatId.toString());
-  console.log('result2 1: '+result2);
-  result2.then(
-    (resolve)=>{
-      console.log(resolve);
-    }
-  );
+  console.log('result2 1: '+result2.resolve);
+  
   
   
 
