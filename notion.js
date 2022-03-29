@@ -82,14 +82,14 @@ const myRegist = async (chatId)  => {
             //console.log(properties.market.rich_text[0].text.content);
             return {
                 chatId : properties.chatId.title[0].text.content,
-                coinName : properties.market.rich_text[0].text.content
+                market : properties.market.rich_text[0].text.content
             };
         });
     } catch (e) {
         console.log(e);
     }
 }
-const checkCoin = async(chatId,coinName)=>{
+const checkCoin = async(chatId,market)=>{
     try{
         const items = await notion.databases.query({
             database_id : process.env.NOTION_DATABASE_ID,
@@ -103,9 +103,9 @@ const checkCoin = async(chatId,coinName)=>{
                         }
                     },
                     {
-                        property : "coinName",
+                        property : "market",
                         rich_text : {
-                            equals : coinName
+                            equals : market
                         }
                     }
                     

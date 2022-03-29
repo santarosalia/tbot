@@ -106,14 +106,14 @@ bot.onText(/\/myRegist/,async(msg)=>{
   const chatId = msg.chat.id;
   await myRegist(chatId.toString()).then((result)=>{
     result.map((item)=>{
-      bot.sendMessage(chatId,item.coinName);
+      bot.sendMessage(chatId,item.market);
     });
   });
 });
 bot.onText(/^\/del\sKRW-\w+/,async(msg)=>{
   const chatId = msg.chat.id;
-  const coinName = msg.text;
-  checkCoin(chatId.toString(),coinName).then((result)=>{
+  const market = msg.text.split(' ')[1];
+  checkCoin(chatId.toString(),market).then((result)=>{
     
     console.log(result.exist());
   });
