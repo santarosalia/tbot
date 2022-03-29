@@ -81,15 +81,16 @@ const myRegist = async (chatId)  => {
             }
             
         })
-        items.results.map((item)=>{
+        return items.results.map((item)=>{
             const properties = JSON.parse(JSON.stringify(item.properties));
-            const properties2 = JSON.stringify(item.properties);
-            const properties3 = item.properties;
+            
             //console.log(properties.chatId.title[0].text.content);
             //console.log(properties.market.rich_text[0].text.content);
-            console.log('p2 : '+properties2);
-            console.log('p3 : '+properties3);
-            const result = properties.market.rich_text[0].text.content;
+            return {
+                chatId : properties.chatId.title[0].text.content,
+                coinName : properties.market.rich_text[0].text.content
+            }
+            
             
             
         });

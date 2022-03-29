@@ -113,11 +113,12 @@ bot.onText(/\/myRegist/,async(msg)=>{
   
   
   
-  let resultList = [];
+  
   await myRegist(chatId.toString()).then((result)=>{
-    console.log(result);
-    //resultList.push(...result);
-    console.log(resultList[0]);
+    result.map((item)=>{
+      console.log(item.chatId);
+      console.log(item.coinName);
+    })
   });
   
   
