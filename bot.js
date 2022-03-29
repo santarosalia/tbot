@@ -46,7 +46,7 @@ bot.on('message',async (msg) => {
 
 
 });
-bot.
+
 bot.onText(/\/start/,async (msg) =>{
     const chatId =msg.chat.id;
     bot.sendMessage(chatId,'안녕하세요 '+msg.chat.first_name+'님 dope 봇입니다🥳\n/help 를 통해 사용법을 알려드릴게요!');
