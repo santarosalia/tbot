@@ -121,12 +121,12 @@ bot.onText(/\/myRegist/,async(msg)=>{
       resultList.push(item.coinName);
       
       bot.sendMessage(chatId,item.coinName);
-    }).then(()=>{
-      bot.sendMessage(chatId,resultList);
     });
     console.log('resultList : '+resultList);
     
     
+  }).then(()=>{
+    bot.sendMessage(chatId,resultList);
   });
   
   
