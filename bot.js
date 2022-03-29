@@ -101,12 +101,12 @@ bot.onText(/^\/add\sKRW-\w+/,async(msg)=>{
   const text = msg.text;
   const market = text.split(' ')[1];
 
-  addMarket(chatId.toString(),market).then((result)=>{
+  checkMarket(chatId.toString(),market).then((result)=>{
 
-    if(result.exist==1){
+    if(result.exist>0){
       bot.sendMessage(chatId,'이미 등록된 마켓입니다.');
     }else{
-      registCoin(chatId.toString(),market);
+      addMarket(chatId.toString(),market);
       bot.sendMessage(chatId,'등록 완료');
     }
 
