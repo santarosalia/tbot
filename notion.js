@@ -30,7 +30,7 @@ async function addItem(text) {
     }
 }
 
-const registCoin = async (chatId,market)  => {
+const addMarket = async (chatId,market)  => {
     try {
         await notion.pages.create({
             parent : {database_id: databaseId},
@@ -63,7 +63,7 @@ const registCoin = async (chatId,market)  => {
 
 
 
-const myRegist = async (chatId)  => {
+const myMarket = async (chatId)  => {
     try {
         const items = await notion.databases.query({
             database_id: process.env.NOTION_DATABASE_ID,
@@ -90,7 +90,7 @@ const myRegist = async (chatId)  => {
         console.log(e);
     }
 }
-const checkCoin = async(chatId,market)=>{
+const checkMarket = async(chatId,market)=>{
     try{
         const items = await notion.databases.query({
             database_id : process.env.NOTION_DATABASE_ID,
@@ -109,9 +109,11 @@ const checkCoin = async(chatId,market)=>{
                                 property : "market",
                                 rich_text : {
                                 equals : market
+                                
                                 }
                             }
                         ]
+                        
                         
                         
                     }
@@ -119,6 +121,7 @@ const checkCoin = async(chatId,market)=>{
                     
 
                 ]
+
 
                 
                 
@@ -131,7 +134,7 @@ const checkCoin = async(chatId,market)=>{
             
         })
         
-        
+        console.log(items.results);
         const exist = items.results.length;
         
         return {exist : exist};
@@ -139,7 +142,15 @@ const checkCoin = async(chatId,market)=>{
         console.log(e);
     }
 }
-module.exports = {registCoin,myRegist,checkCoin}
+const delMarket = async(market)=>{
+    const items = notion.pages.retrieve({
+        auth : 
+        page_id :,
+
+    })
+    
+}
+module.exports = {addMarket,myMarket,checkMarket}
 
 
 // const leftDateFive = async () => {
