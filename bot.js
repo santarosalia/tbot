@@ -114,7 +114,8 @@ bot.onText(/^\/del\sKRW-\w+/,async(msg)=>{
   const chatId = msg.chat.id;
   const coinName = msg.text;
   checkCoin(chatId.toString(),coinName).then((result)=>{
-    console.log(result.exist);
+    
+    console.log(result.exist());
   });
 
 });

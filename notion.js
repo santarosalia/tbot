@@ -83,7 +83,7 @@ const myRegist = async (chatId)  => {
             return {
                 chatId : properties.chatId.title[0].text.content,
                 coinName : properties.market.rich_text[0].text.content
-            }
+            };
         });
     } catch (e) {
         console.log(e);
@@ -119,7 +119,7 @@ const checkCoin = async(chatId,coinName)=>{
             
         })
         const exist = items.has_more();
-        return {exist : exist}
+        return {exist : exist};
     }catch(e){
         console.log(e);
     }
