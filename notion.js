@@ -119,7 +119,7 @@ const checkCoin = async(chatId,coinName)=>{
             
         })
         const exist = items.has_more();
-        return {exist}
+        return {exist : exist}
     }catch(e){
         console.log(e);
     }
