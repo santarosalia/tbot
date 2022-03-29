@@ -130,9 +130,9 @@ const checkCoin = async(chatId,market)=>{
             
         })
         
-        const exist = items.has_more;
-        console.log(items.results.length);
-        console.log(exist);
+        
+        const exist = items.results.length;
+        
         return {exist : exist};
     }catch(e){
         console.log(e);
