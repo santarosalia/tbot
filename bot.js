@@ -2,7 +2,7 @@ const token = process.env.TOKEN;
 
 const Bot = require('node-telegram-bot-api');
 const TelegramBot = require('node-telegram-bot-api/lib/telegram');
-const {addMarket,myMarket,checkCoin, checkMarket} = require('./notion');
+const {addMarket,myMarket,checkMarket,delMarket} = require('./notion');
 const request = require('request');
 const { poll } = require('./poll');
 
@@ -101,11 +101,12 @@ bot.onText(/^\/add\sKRW-\w+/,async(msg)=>{
   const text = msg.text;
   const market = text.split(' ')[1];
 
-  checkMarket(chatId.toString(),market).then((result)=>{
+  checkMarket(chatId.toString(),market).then((results)=>{
 
-    if(result.exist>0){
+    if(results.result.length>0){
       bot.sendMessage(chatId,'이미 등록된 마켓입니다.');
     }else{
+      
       addMarket(chatId.toString(),market);
       bot.sendMessage(chatId,'등록 완료');
     }
@@ -126,10 +127,15 @@ bot.onText(/^\/del\sKRW-\w+/,async(msg)=>{
   const chatId = msg.chat.id;
   const market = msg.text.split(' ')[1];
   
-  checkMarket(chatId.toString(),market).then((result)=>{
-    if(result.exist>0){
-      bot.sendMessage(chatId,'있음');
+  checkMarket(chatId.toString(),market).then((results)=>{
+    if(results.result.length>0){
+      results.result.map((page)=>{
+        
+        delMarket(page.id);
+        bot.sendMessage(chatId,'삭제완료');
+      });
     }else{
+      
       bot.sendMessage(chatId,'등록되지 않은 마켓입니다.');
     }
     

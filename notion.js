@@ -134,22 +134,23 @@ const checkMarket = async(chatId,market)=>{
             
         })
         
-        console.log(items.results);
+        
         const exist = items.results.length;
         
-        return {exist : exist};
+        return {result : items.results};
     }catch(e){
         console.log(e);
     }
 }
-const delMarket = async(market)=>{
-    const items = notion.pages.retrieve({
-        
-
-    })
+const delMarket = async(pageId)=>{
+    const items = notion.pages.update({
+        page_id : pageId,
+        archived : true
+    });
+    
     
 }
-module.exports = {addMarket,myMarket,checkMarket}
+module.exports = {addMarket,myMarket,checkMarket,delMarket}
 
 
 // const leftDateFive = async () => {
