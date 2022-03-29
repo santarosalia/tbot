@@ -53,7 +53,7 @@ bot.onText(/\/start/,async (msg) =>{
 });
 bot.onText(/\/help/,async(msg)=>{
     const chatId =msg.chat.id;
-    bot.sendMessage(chatId,'/myMarket : 구독중인 마켓 확인\n/list : 마켓 리스트 확인하기\n/add 마켓 : 구독할 마켓 등록\n/warning : 유의종목 확인');
+    bot.sendMessage(chatId,'/mymarket : 구독중인 마켓 확인\n/list : 마켓 리스트 확인하기\n/add 마켓 : 구독할 마켓 등록\n/warning : 유의종목 확인');
 });
 
 bot.onText(/\/list/,async(msg)=>{
