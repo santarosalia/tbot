@@ -103,7 +103,7 @@ bot.onText(/^\/add\sKRW-\w+/,async(msg)=>{
 
   addMarket(chatId.toString(),market).then((result)=>{
 
-    if(result.exist>0){
+    if(result.exist==1){
       bot.sendMessage(chatId,'이미 등록된 마켓입니다.');
     }else{
       registCoin(chatId.toString(),market);
