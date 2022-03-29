@@ -11,6 +11,7 @@ const { poll } = require('./poll');
 
 let bot;
 
+
 if(process.env.NODE_ENV === 'production') {
     bot = new Bot(token);
     bot.setWebHook(process.env.HEROKU_URL + bot.token);
@@ -18,7 +19,12 @@ if(process.env.NODE_ENV === 'production') {
 else {
     bot = new Bot(token, { polling: true });
 }
-
+bot.getMyCommands().then(async(df)=>{
+  
+  df.map((dx)=>{
+    console.log(dx);
+  })
+});
 console.log('Bot server started in the ' + process.env.NODE_ENV + ' mode');
 
 bot.on('message',async (msg) => {
