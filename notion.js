@@ -144,8 +144,7 @@ const checkMarket = async(chatId,market)=>{
 }
 const delMarket = async(market)=>{
     const items = notion.pages.retrieve({
-        auth : 
-        page_id :,
+        
 
     })
     
