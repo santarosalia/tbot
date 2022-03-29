@@ -99,8 +99,17 @@ bot.onText(/^\/add\sKRW-\w+/,async(msg)=>{
   const chatId =msg.chat.id;
   const text = msg.text;
   const market = text.split(' ')[1];
-  registCoin(chatId.toString(),market);
-  bot.sendMessage(chatId,'list add');
+
+  checkCoin(chatId.toString(),market).then((result)=>{
+    if(result.exist>0){
+      bot.sendMessage(chatId,'이미 등록된 코인입니다.');
+    }else{
+      registCoin(chatId.toString(),market);
+      bot.sendMessage(chatId,'등록 완료');
+    }
+
+
+  
 });
 bot.onText(/\/myRegist/,async(msg)=>{
   const chatId = msg.chat.id;
@@ -115,7 +124,7 @@ bot.onText(/^\/del\sKRW-\w+/,async(msg)=>{
   const market = msg.text.split(' ')[1];
   
   checkCoin(chatId.toString(),market).then((result)=>{
-    if(result.exist==1){
+    if(result.exist>0){
       bot.sendMessage(chatId,'있음');
     }else{
       bot.sendMessage(chatId,'없음');
