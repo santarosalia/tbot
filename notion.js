@@ -103,17 +103,28 @@ const checkCoin = async(chatId,market)=>{
                         }
                     },
                     {
-                        property : "market",
-                        rich_text : {
-                            equals : market
-                        }
+                        and : [
+                            {
+                                property : "market",
+                                rich_text : {
+                                equals : market
+                                }
+                            }
+                        ]
+                        
+                        
                     }
+                    
                     
 
                 ]
+
+                
+                
                 
                 
             }
+
             
             
             

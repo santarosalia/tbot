@@ -113,7 +113,7 @@ bot.onText(/\/myRegist/,async(msg)=>{
 bot.onText(/^\/del\sKRW-\w+/,async(msg)=>{
   const chatId = msg.chat.id;
   const market = msg.text.split(' ')[1];
-  console.log(market);
+  
   checkCoin(chatId.toString(),market).then((result)=>{
     
     
