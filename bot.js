@@ -117,13 +117,13 @@ bot.onText(/\/myRegist/,async(msg)=>{
 
   await myRegist(chatId.toString()).then((result)=>{
     
-    result.map((item)=>{
+    await result.map((item)=>{
       resultList.push(item.coinName);
       
       bot.sendMessage(chatId,item.coinName);
-    })
+    });
     console.log('resultList : '+resultList);
-    await bot.sendMessage(chatId,resultList);
+    bot.sendMessage(chatId,resultList);
     
   });
   
