@@ -50,7 +50,7 @@ bot.onText(/\/start/,async (msg) =>{
 });
 bot.onText(/\/help/,async(msg)=>{
     const chatId =msg.chat.id;
-    bot.sendMessage(chatId,'/myRegist : 구독중인 코인 확인\n/list : 코인 리스트 확인하기\n/add 마켓코드 : 구독할 코인 등록\n/warning : 유의종목 확인');
+    bot.sendMessage(chatId,'/myRegist : 구독중인 마켓 확인\n/list : 마켓 리스트 확인하기\n/add 마켓 : 구독할 마켓 등록\n/warning : 유의종목 확인');
 });
 
 bot.onText(/\/list/,async(msg)=>{
@@ -68,7 +68,7 @@ bot.onText(/\/list/,async(msg)=>{
             
         }
 
-        bot.sendMessage(chatId,'등록가능한 코인리스트입니다.\n'+list);
+        bot.sendMessage(chatId,'등록가능한 마켓리스트입니다.\n'+list);
     });
 
     
@@ -104,7 +104,7 @@ bot.onText(/^\/add\sKRW-\w+/,async(msg)=>{
   checkCoin(chatId.toString(),market).then((result)=>{
 
     if(result.exist>0){
-      bot.sendMessage(chatId,'이미 등록된 코인입니다.');
+      bot.sendMessage(chatId,'이미 등록된 마켓입니다.');
     }else{
       registCoin(chatId.toString(),market);
       bot.sendMessage(chatId,'등록 완료');
@@ -130,7 +130,7 @@ bot.onText(/^\/del\sKRW-\w+/,async(msg)=>{
     if(result.exist>0){
       bot.sendMessage(chatId,'있음');
     }else{
-      bot.sendMessage(chatId,'없음');
+      bot.sendMessage(chatId,'등록되지 않은 마켓입니다.');
     }
     
   });

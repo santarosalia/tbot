@@ -8,6 +8,7 @@ const databaseId = process.env.NOTION_DATABASE_ID
 
 async function addItem(text) {
     try {
+        
         const response = await notion.pages.create({
         parent: { database_id: databaseId },
         properties: {
