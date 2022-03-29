@@ -95,12 +95,14 @@ bot.sendMessage(chatId,warningList);
 });
 
 });
+
 bot.onText(/^\/add\sKRW-\w+/,async(msg)=>{
   const chatId =msg.chat.id;
   const text = msg.text;
   const market = text.split(' ')[1];
 
   checkCoin(chatId.toString(),market).then((result)=>{
+
     if(result.exist>0){
       bot.sendMessage(chatId,'이미 등록된 코인입니다.');
     }else{
@@ -109,8 +111,9 @@ bot.onText(/^\/add\sKRW-\w+/,async(msg)=>{
     }
 
 
-  
+  });
 });
+
 bot.onText(/\/myRegist/,async(msg)=>{
   const chatId = msg.chat.id;
   await myRegist(chatId.toString()).then((result)=>{
@@ -198,7 +201,7 @@ const options = {
       
         
     
-  
+
 
 
     
