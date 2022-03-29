@@ -2,7 +2,7 @@ const token = process.env.TOKEN;
 
 const Bot = require('node-telegram-bot-api');
 const TelegramBot = require('node-telegram-bot-api/lib/telegram');
-const {registCoin,myRegist} = require('./notion');
+const {registCoin,myRegist,checkCoin} = require('./notion');
 const request = require('request');
 const { poll } = require('./poll');
 
@@ -98,40 +98,25 @@ bot.sendMessage(chatId,warningList);
 bot.onText(/^\/add\sKRW-\w+/,async(msg)=>{
   const chatId =msg.chat.id;
   const text = msg.text;
-  
   const market = text.split(' ')[1];
   registCoin(chatId.toString(),market);
-
-
-
-
-  
   bot.sendMessage(chatId,'list add');
 });
 bot.onText(/\/myRegist/,async(msg)=>{
   const chatId = msg.chat.id;
-  
-  
-  
-  
-
   await myRegist(chatId.toString()).then((result)=>{
-    
     result.map((item)=>{
-      
-      
       bot.sendMessage(chatId,item.coinName);
     });
-    
-    
-    
   });
-  
-  
-  
-  
+});
+bot.onText(/^\/del\sKRW-\w+/,async(msg)=>{
+  const chatId = msg.chat.id;
+  const coinName = msg.text;
+  checkCoin(chatId.toString(),coinName).then((result)=>{
+    console.log(result.exist);
+  });
 
-  
 });
 
 

@@ -72,34 +72,59 @@ const myRegist = async (chatId)  => {
                     rich_text : {
                         equals : chatId
                     }
-                    
                 }
-
-                    
-
                 ]
             }
-            
         })
         return items.results.map((item)=>{
             const properties = JSON.parse(JSON.stringify(item.properties));
-            
             //console.log(properties.chatId.title[0].text.content);
             //console.log(properties.market.rich_text[0].text.content);
             return {
                 chatId : properties.chatId.title[0].text.content,
                 coinName : properties.market.rich_text[0].text.content
             }
-            
-            
-            
         });
-        
     } catch (e) {
-        console.log(e)
+        console.log(e);
     }
 }
-module.exports = {registCoin,myRegist}
+const checkCoin = async(chatId,coinName)=>{
+    try{
+        const items = await notion.databases.query({
+            database_id : process.env.NOTION_DATABASE_ID,
+            filter : {
+                
+                and : [
+                    {
+                        property : "chatId",
+                        rich_text : {
+                            equals : chatId
+                        }
+                    },
+                    {
+                        property : "coinName",
+                        rich_text : {
+                            equals : coinName
+                        }
+                    }
+                    
+
+                ]
+                
+                
+            }
+            
+            
+            
+        })
+        const exist = items.has_more();
+        return {exist}
+    }catch(e){
+        console.log(e);
+    }
+}
+module.exports = {registCoin,myRegist,checkCoin}
 
 
 // const leftDateFive = async () => {
