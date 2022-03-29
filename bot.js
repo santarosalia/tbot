@@ -123,7 +123,7 @@ bot.onText(/\/myRegist/,async(msg)=>{
       bot.sendMessage(chatId,item.coinName);
     })
     console.log('resultList : '+resultList);
-    bot.sendMessage(chatId,resultList).then();
+    await bot.sendMessage(chatId,resultList);
     
   });
   
