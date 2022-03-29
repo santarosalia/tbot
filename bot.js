@@ -115,7 +115,7 @@ bot.onText(/^\/del\sKRW-\w+/,async(msg)=>{
   const market = msg.text.split(' ')[1];
   checkCoin(chatId.toString(),market).then((result)=>{
     
-    console.log(result.exist);
+    
   });
 
 });
