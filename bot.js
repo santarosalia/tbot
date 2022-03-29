@@ -115,15 +115,17 @@ bot.onText(/\/myRegist/,async(msg)=>{
   
   let resultList = [];
 
-  await myRegist(chatId.toString()).then(async(result)=>{
+  await myRegist(chatId.toString()).then((result)=>{
     
     result.map((item)=>{
       resultList.push(item.coinName);
       
       bot.sendMessage(chatId,item.coinName);
+    }).then(()=>{
+      bot.sendMessage(chatId,resultList);
     });
     console.log('resultList : '+resultList);
-    await bot.sendMessage(chatId,resultList);
+    
     
   });
   
