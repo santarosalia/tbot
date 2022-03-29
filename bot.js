@@ -19,7 +19,7 @@ if(process.env.NODE_ENV === 'production') {
 else {
     bot = new Bot(token, { polling: true });
 }
-const commands = bot.getMyCommands;
+const commands = bot.getMyCommands.name;
 console.log(commands);
 console.log('Bot server started in the ' + process.env.NODE_ENV + ' mode');
 
