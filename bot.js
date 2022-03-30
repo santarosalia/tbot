@@ -204,10 +204,11 @@ return result;
 bot.on('message',async(msg)=>{
   const result = setList();
   result.then((list)=>{
-    for(let i=0;i<list.length;i+2){
-      poll(loop1(list,i),60000);
+    console.log(list[0]);
+    // for(let i=0;i<list.length;i+2){
+    //   poll(loop1(list,i),60000);
     
-    }
+    // }
     
   })
   
