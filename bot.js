@@ -181,7 +181,8 @@ const setList=async()=>{
         
         const chatId = await properties.chatId.title[0].text.content;
         const market = await properties.market.rich_text[0].text.content;
-        
+        console.log(chatId);
+        console.log(market);
         list.push(market);
         list.push(chatId);
         
@@ -189,7 +190,7 @@ const setList=async()=>{
       });
       
       
-    return list;
+    return { dfc : list}
   });
 
 }
@@ -200,7 +201,7 @@ const setList=async()=>{
 
 bot.on('message',async(msg)=>{
   setList().then((result)=>{
-    console.log(result);
+    console.log(result.dfc);
   });
   ;
   // for(let i=0;i<4;i+2){
