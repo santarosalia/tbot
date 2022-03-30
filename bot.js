@@ -183,11 +183,11 @@ const setList=()=>{
         const market = properties.market.rich_text[0].text.content;
         list.push(chatId);
         list.push(market);
-        
+        return list;
       });
       
+    return list;
     
-    loopSet();
   });
 
 }
@@ -200,7 +200,7 @@ bot.on('message',async(msg)=>{
 });
 
 const loopSet = ()=>{
-
+  
   for(let i=0;i<4;i+2){
     poll(loop1(i),60000);
   
@@ -282,14 +282,11 @@ const loop1=(i)=>{
       
     
   }
-  poll(loop2,60000);
-  poll(loop2,60000);
-  poll(loop2,60000);
-  poll(loop2,60000);
-  poll(loop2,60000);
-  poll(loop2,60000);
-  poll(loop2,60000);
-  poll(loop2,60000);
+  for(let i = 0; i<4 ; i++){
+    poll(loop2,60000);
+  }
+  
+  
   
   
 
