@@ -1,6 +1,6 @@
 async function a(a,t,e=(()=>!1)){
     do{
-        if(await a(a,b),await e())break;
+        if(await a(),await e())break;
 
         const i="number"==typeof t?t:t();
 
