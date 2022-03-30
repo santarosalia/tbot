@@ -179,7 +179,7 @@ allPage().then(async(items)=>{
       const chatId = properties.chatId.title[0].text.content;
       const market = properties.market.rich_text[0].text.content;
       
-      poll(loop1(chatId,market),60000);
+      //poll(loop1(chatId,market),60000);
     });
     
   }
@@ -248,7 +248,7 @@ function loop1(chatId,market){
       
     
   }
-  //poll(loop2,60000);
+  poll(loop2,60000);
   
   
 
