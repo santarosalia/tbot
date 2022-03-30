@@ -186,10 +186,16 @@ const setList=()=>{
         list.push(market);
         list.push(chatId);
         
-        return list;
+        return {
+          marketList : marketList,
+          chatIdList : chatIdList
+        }
       });
       
-    
+      return {
+        marketList : marketList,
+        chatIdList : chatIdList
+      }
     
   });
 
@@ -198,12 +204,14 @@ const setList=()=>{
 
 
 
+
 bot.on('message',async(msg)=>{
   const list = setList();
-  for(let i=0;i<4;i+2){
-    poll(loop1(list,i),60000);
+  console.log(list);
+  // for(let i=0;i<4;i+2){
+  //   poll(loop1(list,i),60000);
   
-  }
+  // }
 });
 
 
