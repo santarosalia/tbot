@@ -167,13 +167,13 @@ const options = {
     
     
   
-    
+    let list = [];
 function setList(){
-  let list = [];
+  
   allPage().then(async(items)=>{
 
     
-      
+      list = [];
       
       items.results.map((item)=>{
         const properties = JSON.parse(JSON.stringify(item.properties));
