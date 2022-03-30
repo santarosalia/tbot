@@ -175,12 +175,33 @@ allPage().then(async(items)=>{
       const properties = JSON.parse(JSON.stringify(item.properties));
       console.log(properties);
       
+      const chatId = properties.chatId.title[0].text.content;
+      const market = properties.market.rich_text[0].text.content;
+      poll(loop1(chatId,market),60000);
     });
     
   }
   while(items.has_more)
   
 });
+
+function loop1(chatId,market){
+    const tradePrice1 = info[0].trade_price;
+    const tradePrice5 = info[4].trade_price;
+    const timePast = info[4].candle_date_time_kst;
+    const onePer = tradePrice5/100;
+    const result = tradePrice1-tradePrice5;
+
+    const tp1 = parseInt(tradePrice1).toLocaleString();
+    const tp5 =parseInt(tradePrice5).toLocaleString();
+    const rs = parseInt(result).toLocaleString();
+    const per2 = parseFloat((result/tradePrice5)*100).toFixed(2);
+    if((tradePrice5-tradePrice1) >=onePer){
+      bot.sendMessage(chatId,timePast.split('T')[1]+' 기준'+'\n'+market+'의 가격 : '+tp5+'원 => '+tp1+'원\n'+per2+'% 하락 : '+rs+'원').then();
+    }else if((tradePrice1-tradePrice5) >=onePer){
+      bot.sendMessage(chatId,timePast.split('T')[1]+' 기준'+'\n'+market+'의 가격 : '+tp5+'원 => '+tp1+'원\n'+per2+'% 상승 : '+rs+'원').then();
+    }
+}
 
   
   function loop2(){
