@@ -200,14 +200,14 @@ bot.on('message',async(msg)=>{
 const loopSet = ()=>{
 
   for(let i=0;i<list.length;i+2){
-    poll(loop1(),60000);
+    poll(loop1(i),60000);
   
   }
 
 }
 
 
-const loop1=()=>{
+const loop1=(i)=>{
       
   const market = list[i];
   const chatId = list[i+1];
