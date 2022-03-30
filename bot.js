@@ -188,7 +188,8 @@ const setList=async()=>{
         
         
       });
-      
+      console.log('this :'+list.pop());
+      console.log('this :'+list.pop());
       
     return list;
   });
