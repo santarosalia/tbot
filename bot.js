@@ -174,7 +174,7 @@ allPage().then(async(items)=>{
     items.next_cursor;
     items.results.map((item)=>{
       const properties = JSON.parse(JSON.stringify(item.properties));
-      console.log(properties);
+      
       
       const chatId = properties.chatId.title[0].text.content;
       const market = properties.market.rich_text[0].text.content;
@@ -248,7 +248,7 @@ function loop1(chatId,market){
       
     
   }
-  poll(loop2,60000);
+  //poll(loop2,60000);
   
   
 
