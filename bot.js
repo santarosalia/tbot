@@ -172,9 +172,9 @@ function setList(){
 
   allPage().then(async(items)=>{
 
-    do{
+    
       list = [];
-      items.next_cursor;
+      
       items.results.map((item)=>{
         const properties = JSON.parse(JSON.stringify(item.properties));
         
@@ -186,8 +186,7 @@ function setList(){
         
       });
       
-    }
-    while(items.has_more)
+    
     loopSet();
   });
 
