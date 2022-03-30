@@ -173,20 +173,22 @@ const setList=()=>{
   allPage().then(async(items)=>{
 
     
-      let list = [];
       
-      items.results.map((item)=>{
-        const properties = JSON.parse(JSON.stringify(item.properties));
+      
+       items.results.map(async(item)=>{
+        const properties = await JSON.parse(JSON.stringify(item.properties));
         
+        let list = [];
+        const chatId = await properties.chatId.title[0].text.content;
+        const market = await properties.market.rich_text[0].text.content;
         
-        const chatId = properties.chatId.title[0].text.content;
-        const market = properties.market.rich_text[0].text.content;
-        list.push(chatId);
         list.push(market);
+        list.push(chatId);
+        
         return list;
       });
       
-    return list;
+    
     
   });
 
