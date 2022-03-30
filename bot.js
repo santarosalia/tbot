@@ -175,7 +175,7 @@ const setList=async()=>{
     let list = [];
       
       
-        await items.results.map(async(item)=>{
+        items.results.map(async(item)=>{
         const properties = await JSON.parse(JSON.stringify(item.properties));
         
         
@@ -186,14 +186,15 @@ const setList=async()=>{
         list.push(market);
         list.push(chatId);
         console.log('this :'+list[0]);
-      console.log('this :'+list[1]);
-      return list;
+        console.log('this :'+list[1]);
+        return list;
         
       });
-      console.log('this :'+list[0]);
-      console.log('this :'+list[1]);
       
-    return list;
+      
+    
+  }).then((list)=>{
+    console.log('dfg:'+list[1]);
   });
 
 }
