@@ -195,7 +195,7 @@ function loop1(chatId,market){
     }
 
     request(options3,function(error,response,body){
-  
+    const info = JSON.parse(body);
     const tradePrice1 = info[0].trade_price;
     const tradePrice5 = info[4].trade_price;
     const timePast = info[4].candle_date_time_kst;
