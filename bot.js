@@ -205,10 +205,12 @@ bot.on('message',async(msg)=>{
   result.then((prom)=>{
     prom[0].then((list)=>{
       console.log(list.length);
-    //   for(let i=0;i<list.length;i+2){
-    //   poll(loop1(list,i),60000);
+      for(let i=0;i<list.length;i++){
+        if(i%2!=0){
+          continue;}
+      poll(loop1(list,i),60000);
     
-    // }
+    }
     })
     
     
