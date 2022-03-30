@@ -202,7 +202,7 @@ return result;
 
 bot.on('message',async(msg)=>{
   const result = setList();
-  if(result!=null){
+  if(result!=undefined){
   result.then((prom)=>{
     prom[0].then((list)=>{
       console.log(list.length);
