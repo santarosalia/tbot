@@ -204,6 +204,7 @@ bot.on('message',async(msg)=>{
   const result = setList();
   if(result!=undefined){
   result.then((prom)=>{
+    if(prom[0]!=undefined){
     prom[0].then((list)=>{
       console.log(list.length);
       for(let i=0;i<list.length;i++){
@@ -245,6 +246,7 @@ bot.on('message',async(msg)=>{
     
     }
     })
+  }
     
     
   })
