@@ -244,7 +244,7 @@ bot.onText(/\/refresh/,async(msg)=>{
       
       },60000);
     
-    }
+      }
     })
   }else{
     poll(()=>{},90000);
@@ -252,6 +252,8 @@ bot.onText(/\/refresh/,async(msg)=>{
     
     
   })
+}else{
+  poll(()=>{},90000);
 }
   
 });
