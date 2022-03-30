@@ -190,6 +190,7 @@ allPage().then(async(items)=>{
 
 
 bot.on('message',async(msg)=>{
+});
   for(let i=0;i<list.length;i+2){
     poll(function loop1(){
       
@@ -227,7 +228,7 @@ bot.on('message',async(msg)=>{
   
   }
 
-});
+
 
 
 
