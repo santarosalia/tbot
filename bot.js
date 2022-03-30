@@ -168,7 +168,7 @@ const options = {
     
   
     
-const setList=()=>{
+const setList=async()=>{
   
   allPage().then(async(items)=>{
 
@@ -178,25 +178,18 @@ const setList=()=>{
        items.results.map(async(item)=>{
         const properties = await JSON.parse(JSON.stringify(item.properties));
         
-        let marketList = [];
-        let chatIdList = [];
+        
         const chatId = await properties.chatId.title[0].text.content;
         const market = await properties.market.rich_text[0].text.content;
         
         list.push(market);
         list.push(chatId);
         
-        return {
-          marketList : marketList,
-          chatIdList : chatIdList
-        }
+        
       });
       
-      return {
-        marketList : marketList,
-        chatIdList : chatIdList
-      }
-    
+      
+    return list;
   });
 
 }
@@ -206,8 +199,10 @@ const setList=()=>{
 
 
 bot.on('message',async(msg)=>{
-  const list = setList();
-  console.log(list);
+  setList().then((result)=>{
+    console.log(result);
+  });
+  ;
   // for(let i=0;i<4;i+2){
   //   poll(loop1(list,i),60000);
   
