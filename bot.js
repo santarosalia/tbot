@@ -175,7 +175,7 @@ const setList=async()=>{
     let list = [];
       
       
-       items.results.map(async(item)=>{
+        await items.results.map(async(item)=>{
         const properties = await JSON.parse(JSON.stringify(item.properties));
         
         
