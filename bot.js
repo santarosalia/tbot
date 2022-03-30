@@ -200,7 +200,7 @@ return result;
 
 
 
-bot.on('message',async(msg)=>{
+bot.onText(/\/refresh/,async(msg)=>{
   const result = setList();
   if(result!=undefined){
   result.then((prom)=>{
@@ -246,6 +246,8 @@ bot.on('message',async(msg)=>{
     
     }
     })
+  }else{
+    poll(()=>{},90000);
   }
     
     
