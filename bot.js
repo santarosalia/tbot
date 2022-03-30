@@ -167,13 +167,13 @@ const options = {
     
     
   
-    let list = [];
+    
 const setList=()=>{
   
   allPage().then(async(items)=>{
 
     
-      list = [];
+      let list = [];
       
       items.results.map((item)=>{
         const properties = JSON.parse(JSON.stringify(item.properties));
@@ -196,20 +196,17 @@ const setList=()=>{
 
 
 bot.on('message',async(msg)=>{
-  
-});
-
-const loopSet = ()=>{
-  
+  const list = setList();
   for(let i=0;i<4;i+2){
-    poll(loop1(i),60000);
+    poll(loop1(list,i),60000);
   
   }
+});
 
-}
 
 
-const loop1=(i)=>{
+
+const loop1=(list,i)=>{
       
   const market = list[i];
   const chatId = list[i+1];
@@ -282,10 +279,8 @@ const loop1=(i)=>{
       
     
   }
-  for(let i = 0; i<4 ; i++){
-    poll(loop2,60000);
-  }
   
+  poll(loop2,60000);
   
   
   
