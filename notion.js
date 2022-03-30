@@ -150,7 +150,18 @@ const delMarket = async(pageId)=>{
     
     
 }
-module.exports = {addMarket,myMarket,checkMarket,delMarket}
+const allPage = async()=>{
+    const items = await notion.databases.query({
+        database_id : databaseId
+
+
+
+
+    })
+    return items;
+    
+}
+module.exports = {addMarket,myMarket,checkMarket,delMarket,allPage}
 
 
 // const leftDateFive = async () => {

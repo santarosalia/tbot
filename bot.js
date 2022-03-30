@@ -2,7 +2,7 @@ const token = process.env.TOKEN;
 
 const Bot = require('node-telegram-bot-api');
 
-const {addMarket,myMarket,checkMarket,delMarket} = require('./notion');
+const {addMarket,myMarket,checkMarket,delMarket,allPage} = require('./notion');
 const request = require('request');
 const { poll } = require('./poll');
 
@@ -147,6 +147,8 @@ bot.onText(/^\/del\sKRW-\w+/,async(msg)=>{
 });
 
 
+
+
 const options = {
   method: 'GET',
   url: 'https://api.upbit.com/v1/market/all?isDetails=true',
@@ -165,6 +167,20 @@ const options = {
     
   
     
+allPage().then(async(items)=>{
+
+  do{
+    items.next_cursor;
+    items.results.map((item)=>{
+      const properties = JSON.parse(JSON.stringify(item.properties));
+      console.log(properties);
+      
+    });
+    
+  }
+  while(items.has_more)
+  
+});
 
   
   function loop2(){
