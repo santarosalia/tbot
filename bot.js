@@ -185,8 +185,7 @@ const setList=async()=>{
         console.log(market);
         list.push(market);
         list.push(chatId);
-        console.log('this :'+list[0]);
-        console.log('this :'+list[1]);
+        
         return list;
         
       });
@@ -203,12 +202,14 @@ return result;
 
 bot.on('message',async(msg)=>{
   const result = setList();
-  result.then((list)=>{
-    console.log(list[0]);
-    // for(let i=0;i<list.length;i+2){
-    //   poll(loop1(list,i),60000);
+  result.then((prom)=>{
+    prom[0].then((list)=>{
+      for(let i=0;i<list.length;i+2){
+      poll(loop1(list,i),60000);
     
-    // }
+    }
+    })
+    
     
   })
   
