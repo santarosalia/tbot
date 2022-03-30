@@ -172,13 +172,14 @@ const setList=()=>{
   
   allPage().then(async(items)=>{
 
-    
+    let list = [];
       
       
        items.results.map(async(item)=>{
         const properties = await JSON.parse(JSON.stringify(item.properties));
         
-        let list = [];
+        let marketList = [];
+        let chatIdList = [];
         const chatId = await properties.chatId.title[0].text.content;
         const market = await properties.market.rich_text[0].text.content;
         
