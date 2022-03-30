@@ -187,9 +187,11 @@ const setList=async()=>{
         list.push(chatId);
         console.log('this :'+list[0]);
       console.log('this :'+list[1]);
+      return list;
         
       });
-      
+      console.log('this :'+list[0]);
+      console.log('this :'+list[1]);
       
     return list;
   });
