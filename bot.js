@@ -193,7 +193,7 @@ const setList=()=>{
 }
 
 
-poll(setList,60000);
+
 
 bot.on('message',async(msg)=>{
   
