@@ -247,13 +247,17 @@ bot.onText(/\/refresh/,async(msg)=>{
       }
     })
   }else{
-    poll(()=>{},90000);
+    poll(()=>{
+      console.log('등록된 마켓 없음2222222');
+    },90000);
   }
     
     
   })
 }else{
-  poll(()=>{},90000);
+  poll(()=>{
+    console.log('등록된 마켓 없음111111');
+  },90000);
 }
   
 });
