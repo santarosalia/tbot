@@ -196,12 +196,12 @@ const setList=()=>{
 
 
 bot.on('message',async(msg)=>{
-  
+  setList();
 });
 
 const loopSet = ()=>{
 
-  for(let i=0;i<list.length;i+2){
+  for(let i=0;i<4;i+2){
     poll(loop1(i),60000);
   
   }
