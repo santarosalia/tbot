@@ -196,7 +196,7 @@ const setList=()=>{
 
 
 bot.on('message',async(msg)=>{
-  setList();
+  
 });
 
 const loopSet = ()=>{
@@ -282,7 +282,14 @@ const loop1=(i)=>{
       
     
   }
-  //poll(loop2,60000);
+  poll(loop2,60000);
+  poll(loop2,60000);
+  poll(loop2,60000);
+  poll(loop2,60000);
+  poll(loop2,60000);
+  poll(loop2,60000);
+  poll(loop2,60000);
+  poll(loop2,60000);
   
   
 
