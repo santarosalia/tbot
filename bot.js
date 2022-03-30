@@ -170,12 +170,12 @@ const options = {
     
 const setList=async()=>{
   
-  allPage().then(async(items)=>{
+  const result = await allPage().then(async(items)=>{
 
     let list = [];
       
       
-        items.results.map(async(item)=>{
+        const result = items.results.map(async(item)=>{
         const properties = await JSON.parse(JSON.stringify(item.properties));
         
         
@@ -190,13 +190,11 @@ const setList=async()=>{
         return list;
         
       });
-      
+      return result;
       
     
-  }).then((list)=>{
-    console.log('dfg:'+list[1]);
   });
-
+return result;
 }
 
 
@@ -204,11 +202,15 @@ const setList=async()=>{
 
 
 bot.on('message',async(msg)=>{
-  setList();
-  // for(let i=0;i<4;i+2){
-  //   poll(loop1(list,i),60000);
+  const result = setList();
+  result.then((list)=>{
+    for(let i=0;i<list.length;i+2){
+      poll(loop1(list,i),60000);
+    
+    }
+    
+  })
   
-  // }
 });
 
 
