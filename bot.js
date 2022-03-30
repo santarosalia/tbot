@@ -162,6 +162,7 @@ const options = {
     };
     
     
+    
 
     
     
@@ -177,6 +178,7 @@ allPage().then(async(items)=>{
       
       const chatId = properties.chatId.title[0].text.content;
       const market = properties.market.rich_text[0].text.content;
+      
       poll(loop1(chatId,market),60000);
     });
     
@@ -186,6 +188,14 @@ allPage().then(async(items)=>{
 });
 
 function loop1(chatId,market){
+    const options3 = {
+    method: 'GET',
+    url: 'https://api.upbit.com/v1/candles/minutes/1?market='+market+'&count=5',
+    headers: {Accept: 'application/json'}
+    }
+
+    request(options3,function(error,response,body){
+  
     const tradePrice1 = info[0].trade_price;
     const tradePrice5 = info[4].trade_price;
     const timePast = info[4].candle_date_time_kst;
@@ -201,6 +211,9 @@ function loop1(chatId,market){
     }else if((tradePrice1-tradePrice5) >=onePer){
       bot.sendMessage(chatId,timePast.split('T')[1]+' 기준'+'\n'+market+'의 가격 : '+tp5+'원 => '+tp1+'원\n'+per2+'% 상승 : '+rs+'원').then();
     }
+
+  });
+
 }
 
   
