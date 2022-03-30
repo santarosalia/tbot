@@ -190,7 +190,7 @@ const setList=async()=>{
       });
       
       
-    return { dfc : list}
+    return list;
   });
 
 }
@@ -201,7 +201,7 @@ const setList=async()=>{
 
 bot.on('message',async(msg)=>{
   setList().then((result)=>{
-    console.log(result.dfc);
+    console.log(result);
   });
   ;
   // for(let i=0;i<4;i+2){
