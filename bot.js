@@ -168,29 +168,38 @@ const options = {
     
   
     let list = [];
-allPage().then(async(items)=>{
+function setList(){
 
-  do{
-    items.next_cursor;
-    items.results.map((item)=>{
-      const properties = JSON.parse(JSON.stringify(item.properties));
+  allPage().then(async(items)=>{
+
+    do{
+      list = [];
+      items.next_cursor;
+      items.results.map((item)=>{
+        const properties = JSON.parse(JSON.stringify(item.properties));
+        
+        
+        const chatId = properties.chatId.title[0].text.content;
+        const market = properties.market.rich_text[0].text.content;
+        list.push(chatId);
+        list.push(market);
+        
+      });
       
-      
-      const chatId = properties.chatId.title[0].text.content;
-      const market = properties.market.rich_text[0].text.content;
-      list.push(chatId);
-      list.push(market);
-      
-    });
-    
-  }
-  while(items.has_more)
-  
-});
+    }
+    while(items.has_more)
+    loopSet();
+  });
+
+}
 
 
 bot.on('message',async(msg)=>{
+  setList();
 });
+
+function loopSet(){
+
   for(let i=0;i<list.length;i+2){
     poll(function loop1(){
       
@@ -227,6 +236,9 @@ bot.on('message',async(msg)=>{
     },60000);
   
   }
+
+}
+
 
 
 
