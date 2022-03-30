@@ -188,8 +188,8 @@ const setList=async()=>{
         
         
       });
-      console.log('this :'+list.pop());
-      console.log('this :'+list.pop());
+      console.log('this :'+list[0]);
+      console.log('this :'+list[1]);
       
     return list;
   });
@@ -201,10 +201,7 @@ const setList=async()=>{
 
 
 bot.on('message',async(msg)=>{
-  setList().then((result)=>{
-    console.log(result);
-  });
-  ;
+  setList();
   // for(let i=0;i<4;i+2){
   //   poll(loop1(list,i),60000);
   
