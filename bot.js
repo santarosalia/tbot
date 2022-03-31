@@ -182,8 +182,6 @@ const setList=async()=>{
         
         const chatId = await properties.chatId.title[0].text.content;
         const market = await properties.market.rich_text[0].text.content;
-        console.log(chatId);
-        console.log(market);
         list.push(market);
         list.push(chatId);
         
