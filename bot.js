@@ -199,7 +199,9 @@ return result;
 
 let stopPolling = false;
 let stopPollingList =[];
-
+const stopFunc = () => {
+  return stopPollingList[pollingIdx];
+}
 let pollingIdx = 0;
 
 
@@ -252,7 +254,7 @@ bot.onText(/\/refresh/,async(msg)=>{
       
       });
       
-      },60000,()=>stopPollingList[pollingIdx]);
+      },60000,stopFunc());
     
       }
     })
