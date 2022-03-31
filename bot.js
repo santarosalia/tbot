@@ -196,97 +196,13 @@ const setList=async()=>{
 return result;
 }
 
-
-let stopPolling = false;
-let stopPollingList =[];
-const stopFunc = () => {
-  console.log(stopPollingList[pollingIdx]);
-  return stopPollingList[pollingIdx];
-}
-let pollingIdx = 0;
-
-
-bot.onText(/\/refresh/,async(msg)=>{
-  console.log(pollingIdx);
-  console.log(stopPollingList[pollingIdx]);
-  stopPollingList[pollingIdx] = true;
-  console.log('true?'+stopPollingList[pollingIdx]);
-  pollingIdx++;
-  stopPollingList[pollingIdx] = false;
-  const result = setList();
-  if(result!=undefined){
-  result.then((prom)=>{
-    if(prom[0]!=undefined){
-    prom[0].then((list)=>{
-      console.log('poll 갯수 : '+list.length);
-      
-      for(let i=0;i<list.length;i++){
-        if(i%2!=0){
-          continue;}
-      poll(()=>{
-      
-        const market = list[i];
-        const chatId = list[i+1];
-        const options3 = {
-        method: 'GET',
-        url: 'https://api.upbit.com/v1/candles/minutes/1?market='+market+'&count=5',
-        headers: {Accept: 'application/json'}
-        }
-      
-        request(options3,function(error,response,body){
-        if (error) throw new Error(error);
-        const info = JSON.parse(body);
-        
-        const tradePrice1 = info[0].trade_price;
-        const tradePrice5 = info[4].trade_price;
-        const timePast = info[4].candle_date_time_kst;
-        const onePer = tradePrice5/10000;
-        const result = tradePrice1-tradePrice5;
-      
-        const tp1 = parseInt(tradePrice1).toLocaleString();
-        const tp5 =parseInt(tradePrice5).toLocaleString();
-        const rs = parseInt(result).toLocaleString();
-        const per2 = parseFloat((result/tradePrice5)*100).toFixed(2);
-        if((tradePrice5-tradePrice1) >=onePer){
-          bot.sendMessage(chatId,timePast.split('T')[1]+' 기준'+'\n'+market+'의 가격 : '+tp5+'원 => '+tp1+'원\n'+per2+'% 하락 : '+rs+'원').then();
-        }else if((tradePrice1-tradePrice5) >=onePer){
-          bot.sendMessage(chatId,timePast.split('T')[1]+' 기준'+'\n'+market+'의 가격 : '+tp5+'원 => '+tp1+'원\n'+per2+'% 상승 : '+rs+'원').then();
-        }
-      
-      });
-      
-      },60000,stopFunc);
-    
-      }
-    })
-  }else{
-    
-      console.log('등록된 마켓 없음2222222');
-    
-  }
-    
-    
-  })
-}else{
-  
-    console.log('등록된 마켓 없음111111');
-  
-}
-  
-});
-
-
-
-
-
-
 poll(()=>{
   const result = setList();
-  if(result!=undefined){
+  
   result.then((prom)=>{
     if(prom[0]!=undefined){
     prom[0].then((list)=>{
-      console.log('poll 갯수 : '+list.length);
+      console.log('등록된 마켓 수 : '+list.length/2);
       
       for(let i=0;i<list.length;i++){
         if(i%2!=0){
@@ -329,17 +245,13 @@ poll(()=>{
     })
   }else{
     
-      console.log('등록된 마켓 없음2222222');
+      console.log('등록된 마켓 없음');
     
   }
     
     
   })
-}else{
-  
-    console.log('등록된 마켓 없음111111');
-  
-}
+
 },60000);
 
 
@@ -360,84 +272,8 @@ poll(()=>{
 
 
 
-
-
-
-const loop1=(list,i)=>{
-      
-  const market = list[i];
-  const chatId = list[i+1];
-  const options3 = {
-  method: 'GET',
-  url: 'https://api.upbit.com/v1/candles/minutes/1?market='+market+'&count=5',
-  headers: {Accept: 'application/json'}
-  }
-
-  request(options3,function(error,response,body){
-  if (error) throw new Error(error);
-  const info = JSON.parse(body);
   
-  const tradePrice1 = info[0].trade_price;
-  const tradePrice5 = info[4].trade_price;
-  const timePast = info[4].candle_date_time_kst;
-  const onePer = tradePrice5/10000;
-  const result = tradePrice1-tradePrice5;
 
-  const tp1 = parseInt(tradePrice1).toLocaleString();
-  const tp5 =parseInt(tradePrice5).toLocaleString();
-  const rs = parseInt(result).toLocaleString();
-  const per2 = parseFloat((result/tradePrice5)*100).toFixed(2);
-  if((tradePrice5-tradePrice1) >=onePer){
-    bot.sendMessage(chatId,timePast.split('T')[1]+' 기준'+'\n'+market+'의 가격 : '+tp5+'원 => '+tp1+'원\n'+per2+'% 하락 : '+rs+'원').then();
-  }else if((tradePrice1-tradePrice5) >=onePer){
-    bot.sendMessage(chatId,timePast.split('T')[1]+' 기준'+'\n'+market+'의 가격 : '+tp5+'원 => '+tp1+'원\n'+per2+'% 상승 : '+rs+'원').then();
-  }
-
-});
-
-}
-
-
-
-
-
-
-
-
-  
-  function loop2(){
-
-      request(options2,function(error,response,body){
-        if (error) throw new Error(error);
-        const info = JSON.parse(body);
-        
-        
-        const market = info[0].market;
-        const tradePrice1 = info[0].trade_price;
-        const timePresenet = info[0].candle_date_time_kst;
-        const tradePrice5 = info[4].trade_price;
-        const timePast = info[4].candle_date_time_kst;
-        const onePer = tradePrice5/100;
-        const result = tradePrice1-tradePrice5;
-
-        const tp1 = parseInt(tradePrice1).toLocaleString();
-        const tp5 =parseInt(tradePrice5).toLocaleString();
-        const rs = parseInt(result).toLocaleString();
-        const per2 = parseFloat((result/tradePrice5)*100).toFixed(2);
-        if((tradePrice5-tradePrice1) >=onePer){
-          bot.sendMessage('5133524983',timePast.split('T')[1]+' 기준'+'\n'+market+'의 가격 : '+tp5+'원 => '+tp1+'원\n'+per2+'% 하락 : '+rs+'원').then();
-        }else if((tradePrice1-tradePrice5) >=onePer){
-          bot.sendMessage('5133524983',timePast.split('T')[1]+' 기준'+'\n'+market+'의 가격 : '+tp5+'원 => '+tp1+'원\n'+per2+'% 상승 : '+rs+'원').then();
-        }
-        
-        
-        
-      });
-      
-    
-  }
-  
-  //poll(loop2,60000);
   
   
   
