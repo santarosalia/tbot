@@ -206,7 +206,10 @@ bot.onText(/\/refresh/,async(msg)=>{
   result.then((prom)=>{
     if(prom[0]!=undefined){
     prom[0].then((list)=>{
-      console.log(list.length);
+      console.log('poll 갯수 : '+list.length);
+      poll(()=>{
+        console.log('poll reset');
+      },90000,false);
       for(let i=0;i<list.length;i++){
         if(i%2!=0){
           continue;}
@@ -249,7 +252,7 @@ bot.onText(/\/refresh/,async(msg)=>{
   }else{
     poll(()=>{
       console.log('등록된 마켓 없음2222222');
-    },90000);
+    },90000,false);
   }
     
     
@@ -257,10 +260,11 @@ bot.onText(/\/refresh/,async(msg)=>{
 }else{
   poll(()=>{
     console.log('등록된 마켓 없음111111');
-  },90000);
+  },90000,false);
 }
   
 });
+
 
 
 
