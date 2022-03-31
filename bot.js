@@ -147,6 +147,14 @@ bot.onText(/^\/del\sKRW-\w+/,async(msg)=>{
   });
 
 });
+bot.onText(/\/del/,async(msg)=>{
+  bot.sendMessage(msg.chat.id,'삭제할 마켓을 눌러주세요',{
+    "reply_markup" : {
+        "keyboard" : [["BTC-???","BTC-KRW"]]
+
+    }
+    }).then();
+});
 
 
 
@@ -224,7 +232,7 @@ poll(()=>{
         const tradePrice1 = info[0].trade_price;
         const tradePrice5 = info[4].trade_price;
         const timePast = info[4].candle_date_time_kst;
-        const onePer = tradePrice5/10000;
+        const onePer = tradePrice5/100;
         const result = tradePrice1-tradePrice5;
       
         const tp1 = parseInt(tradePrice1).toLocaleString();
