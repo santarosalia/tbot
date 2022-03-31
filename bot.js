@@ -204,6 +204,8 @@ let pollingIdx = 0;
 
 
 bot.onText(/\/refresh/,async(msg)=>{
+  console.log(pollingIdx);
+  console.log(stopPollingList[pollingIdx]);
   stopPollingList[pollingIdx] = true;
   pollingIdx++;
   stopPollingList[pollingIdx] = false;
