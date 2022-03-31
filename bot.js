@@ -200,6 +200,7 @@ return result;
 let stopPolling = false;
 let stopPollingList =[];
 const stopFunc = () => {
+  console.log(stopPollingList[pollingIdx]);
   return stopPollingList[pollingIdx];
 }
 let pollingIdx = 0;
