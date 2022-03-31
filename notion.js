@@ -161,6 +161,7 @@ const allPage = async()=>{
     return items;
     
 }
+
 module.exports = {addMarket,myMarket,checkMarket,delMarket,allPage}
 
 
