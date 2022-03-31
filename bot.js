@@ -343,7 +343,7 @@ const loop1=(list,i)=>{
     
   }
   
-  poll(loop2,60000);
+  //poll(loop2,60000);
   
   
   
