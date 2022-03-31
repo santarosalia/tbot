@@ -197,19 +197,23 @@ return result;
 }
 
 
+let stopPolling = false;
+let stopPollingList =[];
 
+let pollingIdx = 0;
 
 
 bot.onText(/\/refresh/,async(msg)=>{
+  stopPollingList[pollingIdx] = true;
+  pollingIdx++;
+  stopPollingList[pollingIdx] = false;
   const result = setList();
   if(result!=undefined){
   result.then((prom)=>{
     if(prom[0]!=undefined){
     prom[0].then((list)=>{
       console.log('poll 갯수 : '+list.length);
-      poll(()=>{
-        console.log('poll reset');
-      },90000,()=>true);
+      
       for(let i=0;i<list.length;i++){
         if(i%2!=0){
           continue;}
@@ -245,27 +249,25 @@ bot.onText(/\/refresh/,async(msg)=>{
       
       });
       
-      },60000);
+      },60000,()=>stopPollingList[pollingIdx]);
     
       }
     })
   }else{
-    poll(()=>{
+    
       console.log('등록된 마켓 없음2222222');
-    },90000,()=>true);
+    
   }
     
     
   })
 }else{
-  poll(()=>{
+  
     console.log('등록된 마켓 없음111111');
-  },90000,()=>true);
+  
 }
   
 });
-
-
 
 
 
