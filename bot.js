@@ -254,7 +254,7 @@ bot.onText(/\/refresh/,async(msg)=>{
       
       });
       
-      },60000,stopFunc());
+      },60000,stopFunc);
     
       }
     })
