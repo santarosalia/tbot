@@ -106,7 +106,7 @@ bot.onText(/^\/add\sKRW-\w+/,async(msg)=>{
   const text = msg.text;
   const market = text.split(' ')[1];
   let korean_name;
-  request(options,function(error,response,body){
+  const getKoreanName = request(options,function(error,response,body){
     if (error) throw new Error(error);
     const info = JSON.parse(body);
     
@@ -116,15 +116,17 @@ bot.onText(/^\/add\sKRW-\w+/,async(msg)=>{
         
         if(marketRes==market){
           korean_name = info[i].korean_name;
-          return;
+          return korean_name;
         }
         
         
     }
-
+    
     return korean_name;
+    const koreanName = getKoreanName();
 });
   console.log(korean_name);
+  console.log(koreaName);
 
   checkMarket(chatId.toString(),market).then((results)=>{
 
