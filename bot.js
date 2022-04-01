@@ -123,10 +123,11 @@ bot.onText(/^\/add\sKRW-\w+/,async(msg)=>{
     }
     
     return korean_name;
-    const koreanName = getKoreanName();
+    
 });
+const koreanName = getKoreanName();
   console.log(korean_name);
-  console.log(koreaName);
+  console.log(koreanName);
 
   checkMarket(chatId.toString(),market).then((results)=>{
 
