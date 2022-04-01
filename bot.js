@@ -89,8 +89,8 @@ if(error) throw new Error(error);
 const info =JSON.parse(body);
 for(i in info){
 if(info[i].market_warning=='CAUTION' && info[i].market.includes('KRW')){
-    const coinName =info[i].korean_name;
-    warningList += coinName+'\n';
+    const korean_name =info[i].korean_name;
+    warningList += korean_name+'\n';
 
 }
 
@@ -105,6 +105,25 @@ bot.onText(/^\/add\sKRW-\w+/,async(msg)=>{
   const chatId =msg.chat.id;
   const text = msg.text;
   const market = text.split(' ')[1];
+
+  const korean_name = request(options,function(error,response,body){
+    if (error) throw new Error(error);
+    const info = JSON.parse(body);
+    
+    for(i in info){
+        console.log('i ????'+i);
+        const marketRes = info[i].market;
+        const korean_nameRes = info[i].korean_name;
+        if(marketRes==market){
+          return korean_nameRes;
+        }
+        
+        
+    }
+
+    
+});
+  console.log(korean_name);
 
   checkMarket(chatId.toString(),market).then((results)=>{
 
