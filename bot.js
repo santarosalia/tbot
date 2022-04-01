@@ -111,7 +111,7 @@ bot.onText(/^\/add\sKRW-\w+/,async(msg)=>{
     const info = JSON.parse(body);
     
     for(i in info){
-        console.log('i ????'+i);
+        
         const marketRes = info[i].market;
         const korean_nameRes = info[i].korean_name;
         if(marketRes==market){
@@ -123,7 +123,7 @@ bot.onText(/^\/add\sKRW-\w+/,async(msg)=>{
 
     
 });
-  console.log(korean_name);
+  console.log(korean_name.body);
 
   checkMarket(chatId.toString(),market).then((results)=>{
 
