@@ -108,14 +108,14 @@ bot.onText(/^\/add\sKRW-\w+/,async(msg)=>{
   let korean_name;
   request(options,function(error,response,body){
     if (error) throw new Error(error);
-    const info = await JSON.parse(body);
+    const info = JSON.parse(body);
     
     for(i in info){
         
-        const marketRes =await info[i].market;
+        const marketRes = info[i].market;
         
         if(marketRes==market){
-          korean_name =await info[i].korean_name;
+          korean_name = info[i].korean_name;
           return;
         }
         
