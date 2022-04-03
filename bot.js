@@ -63,7 +63,7 @@ bot.onText(/\/list/,async(msg)=>{
         const info = JSON.parse(body);
         let list = '';
         for(i in info){
-            console.log(i);
+            
             const market = info[i].market;
             const korean_name = info[i].korean_name;
             if(market.includes('KRW')){
@@ -271,7 +271,7 @@ poll(()=>{
       //request 
       setTimeout(() => {
         
-      }, 1000);
+      }, 5000);
       
       
     
